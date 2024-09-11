@@ -4,27 +4,34 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 { 
-    void Update()
+    private void Update()
     {
-        // Player 일반공격
+        HandleAttackInput();
+    }
 
+
+    // 입력에 따라 플레이어의 공격 처리
+    private void HandleAttackInput()
+    {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            print("일반공격");
+            PerformBasicAttack();
         }
+    }
+    private void PerformBasicAttack()
+    {
+        Debug.Log("일반공격");
+    }
 
-        // 스킬 공격
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            print("일반공격");
-        }
+    private void PerformSkillAttack()
+    {
+        Debug.Log("스킬 공격");
+    }
 
-        // 궁극기
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            print("긍극기");
-        }
+ 
+    private void PerformUltimateAttack()
+    {
+        Debug.Log("궁극기");
     }
 }

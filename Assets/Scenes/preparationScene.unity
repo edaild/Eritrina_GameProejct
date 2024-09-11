@@ -657,12 +657,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bfcf93c05a9cec43a55eb4b2b4dd121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lodingIcon:
+  loadingIcons:
   - {fileID: 2064957195}
   - {fileID: 1476876513}
   - {fileID: 1935830870}
   - {fileID: 1627229221}
-  lodingTime: 12
+  loadingTime: 5
 --- !u!1 &1627229221
 GameObject:
   m_ObjectHideFlags: 0

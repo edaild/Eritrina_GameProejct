@@ -6,28 +6,47 @@ using UnityEngine.UI;
 
 public class playerLever : MonoBehaviour
 {
-    public float playerLever_count = 1;
-    public Text playerLever_text;
+    [Header("Player Level settings")]
+    [Tooltip("current player level")]
+    public float playerLevel = 1f;
 
+    [Tooltip("Texxt component to display the player level")]
+    public Text levelText;
 
-    void Update()
+    private const float MaxLevel = 60f;
+
+    private void Update()
+    {
+        HandIeInput();
+    }
+
+    private void HandIeInput()
     {
         if (Input.GetKeyDown(KeyCode.N))
         {
-            playerLever_count += 1;
+            IncreaseLevel();
+        }
+    }
 
-            if (playerLever_count >= 60)
+    private void IncreaseLevel()
+    {
+        if (playerLevel < MaxLevel)
+        {
+            playerLevel += 1f;
+            if (playerLevel >= MaxLevel)
             {
-                print("축하합니다. 최대 60레벨을 달성 하셔습니다.");
-
-               if (playerLever_count > 60)
-                {
-                    print("더 이상은 점수를 올릴수 없습니다.");
-
-                    playerLever_count = 60;
-                }
+                playerLevel = MaxLevel;
+                Debug.Log("축하합니다. 최대 레벨을 달성하셨습니다.");
             }
         }
-        playerLever_text.text = "Lever " + playerLever_count;
+        else
+        {
+            Debug.Log("더 이상은 점수를 올릴 수 없습니다.");
+        }
+    }
+
+    private void updateleveldisplay()
+    {
+        levelText.text = $"Level {playerLevel}";
     }
 }
