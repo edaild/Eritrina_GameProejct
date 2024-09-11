@@ -17,6 +17,16 @@ public class PlayerAttack : MonoBehaviour
         {
             PerformBasicAttack();
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            PerformBasicAttack();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            PerformBasicAttack();
+        }
     }
     private void PerformBasicAttack()
     {
