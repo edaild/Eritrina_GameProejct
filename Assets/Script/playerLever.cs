@@ -10,7 +10,7 @@ public class playerLever : MonoBehaviour
     [Tooltip("current player level")]
     public float playerLevel = 1f;
 
-    [Tooltip("Texxt component to display the player level")]
+    [Tooltip("Text component to display the player level")]
     public Text levelText;
 
     private const float MaxLevel = 60f;
@@ -36,12 +36,12 @@ public class playerLever : MonoBehaviour
             if (playerLevel >= MaxLevel)
             {
                 playerLevel = MaxLevel;
-                Debug.Log("цЮгогу╢о╢ы. цж╢К ╥╧╨╖ю╩ ╢ч╪╨го╪л╫ю╢о╢ы.");
+                Debug.Log("Л╤∙М∙≤М∙╘К▀┬К▀╓. Л╣°К▄─ К═┬К╡╗Л²└ К▀╛Л└╠М∙≤Л┘╗Л┼╣К▀┬К▀╓.");
             }
         }
         else
         {
-            Debug.Log("╢У юл╩Сю╨ а║╪Ж╦╕ ©ц╦╠ ╪Ж ╬Ь╫ю╢о╢ы.");
+            Debug.Log("К█■ Л²╢Л┐│Л²─ Л═░Л┬≤К╔╪ Л≤╛К╕╢ Л┬≤ Л≈├Л┼╣К▀┬К▀╓.");
         }
     }
 
