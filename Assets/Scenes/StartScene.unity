@@ -304,13 +304,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 407590644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a650644fd2cf834e864e77b02eb9518, type: 3}
+  m_Script: {fileID: 11500000, guid: e0bd5b00a2643bc428922913a788b009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loding_Time: 4
-  logo_Image:
-  - {fileID: 460857173}
-  - {fileID: 1294858483}
+  image1: {fileID: 460857174}
+  image2: {fileID: 1294858484}
+  Scene_chlck: 0
+  fadeDuration: 1
+  displayDuration: 2
 --- !u!1 &460857173
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,14 +343,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c9a60711dc6ea25478c9f00a0e34cd3c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -384,7 +385,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &609700864
 GameObject:
@@ -509,7 +510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.033018887, g: 0.3769448, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -551,7 +552,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1200, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1344138403
 GameObject:
