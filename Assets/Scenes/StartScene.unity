@@ -309,7 +309,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image1: {fileID: 460857174}
   image2: {fileID: 1294858484}
-  Scene_chlck: 0
   fadeDuration: 1
   displayDuration: 2
 --- !u!1 &460857173

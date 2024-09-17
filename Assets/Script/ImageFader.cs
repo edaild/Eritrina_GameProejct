@@ -7,12 +7,14 @@ public class ImageFader : MonoBehaviour
 {
     // 이미지 1과 이미지 2를 UI에서 설정할 수 있도록 SerializeField로 선언합니다.
     [SerializeField]
+    [Header("Logo_image")]
     public Image image1;  // 이미지1
     public Image image2;  // 이미지2
 
     // 페이드 효과의 지속 시간과 이미지가 표시되는 시간을 설정합니다.
+    [Header("FadeTime")]
     public float fadeDuration = 1.0f;  // 페이드 효과를 지속하는 시간
-    public float displayDuration = 1.0f; // 이미지가 표시되는 시간
+    public float displayDuration = 2.0f; // 이미지가 표시되는 시간
 
     private void Start()
     {
@@ -25,6 +27,8 @@ public class ImageFader : MonoBehaviour
         // 무한 루프를 사용하여 이미지의 페이드 효과를 반복합니다.
         while (true)
         {
+            // yield : Enumerator(Iterator)라고 불리는 이러한 기능은 집합적인 데이터 셋으로부터 데이터를 하나씩 호출자에게 보내주는 역할을 한다.
+            // WaitForSeconds : 특정 시간뒤 함수 호출
             // image1을 페이드 인합니다 (투명도 0에서 1로 변경)
             yield return StartCoroutine(FadeCanvasGroup(image1, 0f, 1f, fadeDuration));
             yield return new WaitForSeconds(displayDuration);
@@ -66,12 +70,6 @@ public class ImageFader : MonoBehaviour
     {
         // 새로운 씬 로드가 완료된 후 페이드 인 효과를 적용합니다.
         yield return new WaitForSeconds(0.1f); // 잠시 대기하여 씬이 완전히 로드되도록 합니다.
-
-        // 새 씬의 UI 이미지가 있을 경우 페이드 인을 적용합니다.
-        if (image1 != null)
-            yield return StartCoroutine(FadeCanvasGroup(image1, 0f, 1f, fadeDuration));
-        if (image2 != null)
-            yield return StartCoroutine(FadeCanvasGroup(image2, 0f, 1f, fadeDuration));
     }
 
     private IEnumerator FadeCanvasGroup(Image image, float startAlpha, float endAlpha, float duration)

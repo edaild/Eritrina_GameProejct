@@ -257,7 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image1: {fileID: 1131304267}
   fadeDuration: 1
-  displayDuration: 1
+  displayDuration: 2
 --- !u!1 &248697855
 GameObject:
   m_ObjectHideFlags: 0

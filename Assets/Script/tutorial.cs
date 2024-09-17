@@ -34,7 +34,7 @@ public class tutorial : MonoBehaviour
                     textUI.SetActive(true);
                     hpbar.SetActive(false);
                     menuButton.SetActive(false);
-                    npcName.text = "NPC 대화 입니다.";
+                    npcName.text = "NPC 이름 입니다.";
 
                 }
 
