@@ -9,6 +9,10 @@ public class uIcontrol : MonoBehaviour
     public GameObject MainMenu;
     public GameObject letterMenu;
     public GameObject map;
+    public GameObject characterButton01;
+    public GameObject characterButton02;
+    public GameObject playerHpbar;
+
     public bool Mainmenu_On;
     public bool Mapmenu_On;
 
@@ -60,11 +64,28 @@ public class uIcontrol : MonoBehaviour
         }
     }
 
+    public void offMainmenu()
+    {
+        if (Mainmenu_On == true)
+        {
+            characterButton01.gameObject.SetActive(false);
+            characterButton02.gameObject.SetActive(false);
+            playerHpbar.gameObject.SetActive(false);
+        }
+        else
+        {
+            characterButton01.gameObject.SetActive(true);
+            characterButton02.gameObject.SetActive(true);
+            playerHpbar.gameObject.SetActive(true);
+        }
+    }
+
     // keyboard
 
     private void Update()
     {
         Mapkey();
+        offMainmenu();
     }
 }
 

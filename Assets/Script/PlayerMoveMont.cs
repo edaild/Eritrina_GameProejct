@@ -13,13 +13,13 @@ public class PlayerMoveMont : MonoBehaviour
     public float groundCheckDistance = 0.4f;
 
     private bool isGrounded;
-    private Animator animator;
+   // private Animator animator;
     private Rigidbody playerRigidbody;
 
     private void Start()
     {
         playerRigidbody = this.GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+       //animator = GetComponent<Animator>();
         isGrounded = true;
     }
 
@@ -32,11 +32,11 @@ public class PlayerMoveMont : MonoBehaviour
 
         playerRigidbody.velocity = Movemont * playerSpeed * rotSpeed * Time.deltaTime;
 
-        animator.SetBool("IsWark", Movemont != Vector3.zero); 
+       // animator.SetBool("IsWark", Movemont != Vector3.zero); 
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            animator.SetBool("IsRun", Movemont != Vector3.zero);
+           // animator.SetBool("IsRun", Movemont != Vector3.zero);
         }
 
         transform.LookAt(transform.position + Movemont);
