@@ -8,18 +8,17 @@ public class PlayerMoveMont : MonoBehaviour
    
     public float playerSpeed;
     public float jumpForce;
-    public float rotSpeed;
     public LayerMask groundLayer;
     public float groundCheckDistance = 0.4f;
 
     private bool isGrounded;
-   // private Animator animator;
+    private Animator animator;
     private Rigidbody playerRigidbody;
 
     private void Start()
     {
         playerRigidbody = this.GetComponent<Rigidbody>();
-       //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         isGrounded = true;
     }
 
@@ -28,16 +27,11 @@ public class PlayerMoveMont : MonoBehaviour
         float xInput = Input.GetAxis("Horizontal");
         float zInput = Input.GetAxis("Vertical");
 
-        Vector3 Movemont = new Vector3 (xInput, 0, zInput);
+        Vector3 Movemont = new Vector3 (xInput, 0, zInput).normalized;
 
-        playerRigidbody.velocity = Movemont * playerSpeed * rotSpeed * Time.deltaTime;
+        playerRigidbody.velocity = Movemont * playerSpeed  * Time.deltaTime;
 
-       // animator.SetBool("IsWark", Movemont != Vector3.zero); 
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-           // animator.SetBool("IsRun", Movemont != Vector3.zero);
-        }
+        animator.SetBool("IsWark", Movemont != Vector3.zero); 
 
         transform.LookAt(transform.position + Movemont);
 

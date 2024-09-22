@@ -6,15 +6,15 @@ using UnityEngine.UI;
 
 public class uIcontrol : MonoBehaviour
 {
-    public GameObject MainMenu;
-    public GameObject letterMenu;
-    public GameObject map;
-    public GameObject characterButton01;
-    public GameObject characterButton02;
-    public GameObject playerHpbar;
+    public GameObject MainMenu; // 메인메뉴
+    public GameObject letterMenu; // 우편
+    public GameObject map; // 지도
+    public GameObject characterButton01; // 캐릭터 UI 01
+    public GameObject characterButton02; // 캐릭터 UI 02
+    public GameObject playerHpbar; // player 채력바
 
-    public bool Mainmenu_On;
-    public bool Mapmenu_On;
+    public bool Mainmenu_On; // 메인메뉴 확인
+    public bool Mapmenu_On; // 지도 확인
 
     // Main Menu
     public void Onbuttonclick_MainMenu()
