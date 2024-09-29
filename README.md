@@ -1,4 +1,4 @@
-# 2nd semester project
-2nd semester project
+# Eritrina_GameProejct
+2nd semester projec
 
 
