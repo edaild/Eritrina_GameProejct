@@ -6,38 +6,42 @@ using UnityEngine.Rendering.Universal.Internal;
 public class PlayerMoveMont : MonoBehaviour
 {
    
-    public float playerSpeed;
-    public float jumpForce;
-    public LayerMask groundLayer;
-    public float groundCheckDistance = 0.4f;
 
-    private bool isGrounded;
-    private Animator animator;
-    private Rigidbody playerRigidbody;
+    [SerializeField]
+    [Header("플레이어 움직임")]
+    public float playerSpeed; // 속도
+    public float jumpForce;  // 점프 힘
+
+    public bool isGrounded; // 땅 체크
+    private Animator animator; // 애니매이션
+    private Rigidbody playerRigidbody; // playerRigidbody
 
     private void Start()
     {
         playerRigidbody = this.GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        isGrounded = true;
+
     }
 
     private void Update()
     {
-        float xInput = Input.GetAxis("Horizontal");
-        float zInput = Input.GetAxis("Vertical");
+        PlayerMove();
+    }
 
-        Vector3 Movemont = new Vector3 (xInput, 0, zInput).normalized;
+    void PlayerMove()
+    {
+        float xInput = Input.GetAxis("Horizontal"); // 좌우
+        float zInput = Input.GetAxis("Vertical"); // 상하
 
-        playerRigidbody.velocity = Movemont * playerSpeed  * Time.deltaTime;
+        Vector3 Movemont = new Vector3(xInput, 0, zInput).normalized;
 
-        animator.SetBool("IsWark", Movemont != Vector3.zero); 
+        playerRigidbody.velocity = Movemont * playerSpeed * Time.deltaTime;
+
+        animator.SetBool("IsWark", Movemont != Vector3.zero); //  에니메이션 적용
 
         transform.LookAt(transform.position + Movemont);
 
-        isGrounded = Physics.Raycast(transform.position + (Vector3.up * 0.2f), Vector3.down, groundCheckDistance, groundLayer);
-
-        if (Input.GetButtonDown("Jump") && isGrounded  == true)
+        if (Input.GetButtonDown("Jump") && isGrounded == true)
         {
             Jump();
         }
@@ -47,5 +51,11 @@ public class PlayerMoveMont : MonoBehaviour
     private void Jump()
     {
         playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        isGrounded = false;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        isGrounded = true;
     }
 }
