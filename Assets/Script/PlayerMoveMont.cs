@@ -5,35 +5,34 @@ using UnityEngine.Rendering.Universal.Internal;
 
 public class PlayerMoveMont : MonoBehaviour
 {
-   
 
-    [SerializeField]
-    [Header("플레이어 움직임")]
-    public float playerSpeed; // 속도
+    [Header("Player Check")]
+   
+    public GameObject[] player = new GameObject[4]; // 플레이어 배열 추가
+
+    [Header("Player Movement")]
+    public float playerSpeed; // 이동 속도
     public float jumpForce;  // 점프 힘
 
-    public bool isGrounded; // 땅 체크
+    private bool isGrounded; // 땅 체크
     private Animator animator; // 애니매이션
     private Rigidbody playerRigidbody; // playerRigidbody
 
     private void Start()
     {
-        playerRigidbody = this.GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        playerRigidbody = this.GetComponent<Rigidbody>(); 
+        animator = GetComponent<Animator>(); 
 
     }
 
     private void Update()
     {
-        PlayerMove();
-    }
+        // 키보드의 수평 입력을 받아온다.
+        float xInput = Input.GetAxis("Horizontal");
+        // 키보드의 수직 입력을 받아온다.
+        float zInput = Input.GetAxis("Vertical"); 
 
-    void PlayerMove()
-    {
-        float xInput = Input.GetAxis("Horizontal"); // 좌우
-        float zInput = Input.GetAxis("Vertical"); // 상하
-
-        Vector3 Movemont = new Vector3(xInput, 0, zInput).normalized;
+        Vector3 Movemont = new Vector3(xInput, 0, zInput);
 
         playerRigidbody.velocity = Movemont * playerSpeed * Time.deltaTime;
 
@@ -43,19 +42,20 @@ public class PlayerMoveMont : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded == true)
         {
-            Jump();
+            HandleJump();
         }
     }
 
-
-    private void Jump()
+    private void HandleJump()
     {
-        playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        // 함수가 호출될 경우 위쪽방향으로 무게를 적용하고 순간적 인 힘을 준다
+        playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); 
         isGrounded = false;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        isGrounded = true;
+        // 플레이어가 땅에 있는지 Check
+        isGrounded = true; 
     }
 }
