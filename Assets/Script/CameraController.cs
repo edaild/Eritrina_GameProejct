@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    [Header("카메라 따라갈 타켓")]
     public Transform target;         // 카메라가 따라갈 타겟
     public Vector3 offset;           // 타겟과의 오프셋
-    public float moveSpeed = 3f;     // 카메라 이동 속도
+
+    [Header("카메라에 줌 제어")]
     public float zoomSpeed = 2f;     // 줌 속도
     public float distance = 5f;       // 타겟과의 초기 거리
     public float minDistance = 2f;    // 최소 거리
-    public float maxDistance = 10f;    // 최대 거리
+    public float maxDistance = 5f;    // 최대 거리
+
+    [Header("카메라에 회전 제어")]
     public float rotateSpeed = 5.0f;  // 회전 속도
     public float limitAngle = 70.0f;  // 수직 회전의 제한 각도
     public float dragLimit = 5.0f;    // 드래그 제한 거리

@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
-    public GameObject[] playerCharacter = new GameObject[2]; // 캐릭터 배열 추가
-    public Button[] characterButtons; // UI 버튼 배열 추가
+    [Tooltip("캐릭터 배열")] public GameObject[] playerCharacter = new GameObject[2]; // 캐릭터 배열 추가
+    [Tooltip("버튼 배열")] public Button[] characterButtons; // UI 버튼 배열 추가
 
     // 활성화된 버튼 색상 (16진수 색상 코드 #3E3593)
     private Color activeColor = new Color32(62, 53, 147, 178); // RGB(62, 53, 147) 및 Alpha(255)
