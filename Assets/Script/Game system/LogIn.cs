@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Xml.Serialization;
 
-public class Main : MonoBehaviour
+public class LogIn : MonoBehaviour
 {
     [SerializeField]
 
