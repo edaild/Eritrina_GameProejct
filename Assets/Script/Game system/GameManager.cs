@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     {
         if (loadingTime <= 0 && !sceneLoaded)
         {
-            SceneManager.LoadScene("HotelsScene");
+            SceneManager.LoadScene("HotelScene");
             sceneLoaded = true; 
         }
     }
