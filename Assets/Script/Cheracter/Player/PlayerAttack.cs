@@ -21,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
         // 스킬 공격 처리
         if (Input.GetKeyDown(KeyCode.E))
         {
-            PerformBasicAttack();
+            PerformSkillAttack();
         }
     }
 
