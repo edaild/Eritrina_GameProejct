@@ -13,18 +13,21 @@ public class PlayerAttack : MonoBehaviour
     // 입력에 따라 플레이어의 공격 처리
     private void HandleAttackInput()
     {
-        // 기본 공격 처리
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             PerformBasicAttack();
         }
-        // 스킬 공격 처리
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             PerformBasicAttack();
         }
-    }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            PerformBasicAttack();
+        }
+    }
     private void PerformBasicAttack()
     {
         Debug.Log("일반공격");
@@ -36,4 +39,9 @@ public class PlayerAttack : MonoBehaviour
         Debug.Log("스킬 공격");
     }
 
+ 
+    private void PerformUltimateAttack()
+    {
+        Debug.Log("궁극기");
+    }
 }
