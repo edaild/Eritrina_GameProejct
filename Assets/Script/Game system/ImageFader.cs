@@ -6,7 +6,7 @@ using System.Collections;
 public class ImageFader : MonoBehaviour
 {
     // 이미지 1과 이미지 2를 UI에서 설정할 수 있도록 SerializeField로 선언합니다.
-
+    [SerializeField]
     [Header("Logo_image")]
     public Image image1;  // 이미지1
     public Image image2;  // 이미지2

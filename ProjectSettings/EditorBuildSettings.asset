@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScene.unity
     guid: 06622ec994e8f924b831856963ba8862
   - enabled: 1
-    path: Assets/Scenes/HotelScene.unity
+    path: Assets/Scenes/HotelsScene.unity
     guid: 3eeeb3caf0d4682449c9eb491ab21c8b
   - enabled: 1
     path: Assets/Scenes/preparationScene.unity
