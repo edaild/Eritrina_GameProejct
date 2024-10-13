@@ -16,7 +16,7 @@ public class Character : MonoBehaviour
         // 만약 playerCharacter 에 배열이 0보다 클 경우
         if (playerCharacter.Length > 0)
         {
-            // i 가 playerCharacter 배열 보다 작다면
+            
             for (int i = 0; i < playerCharacter.Length; i++)
             {
                 // 첫 번째 케릭터만 활성화
@@ -30,11 +30,9 @@ public class Character : MonoBehaviour
     public void OnButtonClickCharacter(int characterIndex)
     {
         // characterIndex가 배열의 범위 내에 있는지 확인
-        // 만약 character Index 가 0 보다 크거나 같고  그리고 playerCharacter.Length 보다 작으면
         if (characterIndex >= 0 && characterIndex < playerCharacter.Length)
         {
             // 선택된 캐릭터를 활성화하고 나머지는 비활성
-            // i = 0을로 초기화 하고 i 가 playerCharacter.Length 보다 작으며 i 를 증가 시켜라
             for (int i = 0; i < playerCharacter.Length; i++)
             {
                 playerCharacter[i].SetActive(i == characterIndex);
@@ -55,5 +53,14 @@ public class Character : MonoBehaviour
         {
             OnButtonClickCharacter(1);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            OnButtonClickCharacter(2);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            OnButtonClickCharacter(3);
+        }
     }
+
 }

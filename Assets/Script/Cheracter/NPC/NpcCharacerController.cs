@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class NpcCharacerController : MonoBehaviour
 {
+    [Header("NPC system")]
+
     public GameObject[] NpcCharacter;
+
     public GameObject fKeyUI;
     public float NpcSpeed;
 
