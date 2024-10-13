@@ -23,6 +23,11 @@ public class PlayerAttack : MonoBehaviour
         {
             PerformSkillAttack();
         }
+        // ±à±Ø±â °ø°Ý Ã³¸®
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Atick();
+        }
     }
 
     private void PerformBasicAttack()
@@ -36,4 +41,8 @@ public class PlayerAttack : MonoBehaviour
         Debug.Log("½ºÅ³ °ø°Ý");
     }
 
+    private void Atick()
+    {
+        Debug.Log("±à±Ø±â °ø°Ý");
+    }
 }
