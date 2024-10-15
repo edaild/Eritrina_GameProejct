@@ -5,9 +5,8 @@ using UnityEngine;
 public class PlayerMoveMont : MonoBehaviour
 {
     [Header("Player Movement")]
-    public float playerSpeed = 5f; // 이동 속도
-    public float runSpeed = 10f; // 뛰는 속도
-    public float jumpForce = 5f; // 점프 힘
+    [Tooltip("플레이어 걷는 속도")] public float playerSpeed = 5f; // 이동 속도
+    [Tooltip("플레이어 뛰는 속도")] public float runSpeed = 10f; // 뛰는 속도
 
     private bool isGrounded; // 땅 체크
     private Animator animator; // 애니메이션

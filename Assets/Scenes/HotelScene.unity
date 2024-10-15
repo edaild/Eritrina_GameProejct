@@ -13025,6 +13025,7 @@ GameObject:
   - component: {fileID: 312638045}
   - component: {fileID: 312638046}
   - component: {fileID: 312638047}
+  - component: {fileID: 312638048}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -13219,8 +13220,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 5
-  RunSpeed: 100
-  jumpForce: 5
+  runSpeed: 10
+--- !u!114 &312638048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312638037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a74cc5de9118f468d31773c948ae9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DieImage: {fileID: 1794347166}
+  healthBar: {fileID: 1491474460}
 --- !u!1 &316861233
 GameObject:
   m_ObjectHideFlags: 0
@@ -70265,7 +70279,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -70283,9 +70297,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -84979,7 +84993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19245279, g: 0.049020972, b: 0.049020972, a: 0.8}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
