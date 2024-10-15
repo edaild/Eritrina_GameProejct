@@ -8,8 +8,7 @@ public class uIcontrol : MonoBehaviour
 {
     [Header("UI 시스탬")]
     [Tooltip("테블릿 메뉴")]public GameObject MainMenu; // 메인메뉴
-    [Tooltip("지도")]public GameObject map; // 지도
-    [Tooltip("우편")]public GameObject letterMenu; // 우편
+    [Tooltip("지도")]public GameObject map; // 지도 
     [Tooltip("캐릭터 UI")]public GameObject characterButton01; // 캐릭터 UI 01
     [Tooltip("캐릭터 UI")]public GameObject characterButton02; // 캐릭터 UI 02
     [Tooltip("캐릭터 UI")]public GameObject characterButton03; // 캐릭터 UI 03

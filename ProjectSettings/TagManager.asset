@@ -4,10 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Grounded
-  - IA
-  - "\uB2E4\uB78C\uC950 \uBAAC\uC2A4\uD130"
-  - bridge
+  - Ground
   layers:
   - Default
   - TransparentFX

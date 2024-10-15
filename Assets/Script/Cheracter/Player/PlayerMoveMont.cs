@@ -1,35 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal.Internal;
 
 public class PlayerMoveMont : MonoBehaviour
 {
-
-    [Header("Player Check")]
-
-    public GameObject[] player = new GameObject[4]; // 플레이어 배열 추가
-
     [Header("Player Movement")]
-    public float playerSpeed; // 이동 속도
-    public float jumpForce;  // 점프 힘
+    public float playerSpeed = 5f; // 이동 속도
+    public float runSpeed = 10f; // 뛰는 속도
+    public float jumpForce = 5f; // 점프 힘
 
     private bool isGrounded; // 땅 체크
-    private Animator animator; // 애니매이션
-    private Rigidbody playerRigidbody; // playerRigidbody
+    private Animator animator; // 애니메이션
+    private Rigidbody playerRigidbody; // Rigidbody
 
     private void Start()
     {
-        playerRigidbody = this.GetComponent<Rigidbody>();
+        playerRigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-
     }
 
     private void Update()
     {
         HandleMovement();
         HandleJump();
-
     }
 
     private void HandleMovement()
@@ -39,29 +32,41 @@ public class PlayerMoveMont : MonoBehaviour
         // 키보드의 수직 입력을 받아온다.
         float zInput = Input.GetAxis("Vertical");
 
-        Vector3 Movemont = new Vector3(xInput, 0, zInput).normalized;
+        Vector3 movement = new Vector3(xInput, 0, zInput).normalized;
 
-        playerRigidbody.velocity = Movemont * playerSpeed * Time.deltaTime;
+        // 뛰는 속도 계산
+        float currentSpeed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) ? runSpeed : playerSpeed;
+        playerRigidbody.velocity = new Vector3(movement.x * currentSpeed, playerRigidbody.velocity.y, movement.z * currentSpeed);
 
-        animator.SetBool("IsWark", Movemont != Vector3.zero); //  에니메이션 적용
+        // 애니메이션
+        animator.SetBool("IsWalk", movement != Vector3.zero && !Input.GetKey(KeyCode.LeftShift)); // 걷는 애니메이션
+        animator.SetBool("IsRun", Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) && movement != Vector3.zero); // 뛰는 애니메이션
 
-        transform.LookAt(transform.position + Movemont);
+        // 방향
+        if (movement != Vector3.zero)
+        {
+            transform.LookAt(transform.position + movement);
+        }
     }
 
     private void HandleJump()
     {
-        if (Input.GetButtonDown("Jump") && isGrounded == true)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            // 함수가 호출될 경우 위쪽방향으로 무게를 적용하고 순간적 인 힘을 준다
+            // 점프
             playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
+            animator.SetBool("IsJump", true); // 점프 애니메이션 시작
         }
-        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        // 플레이어가 땅에 있는지 Check
-        isGrounded = true;
+        // 플레이어가 땅에 있는지 Check (태그를 사용)
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+            animator.SetBool("IsJump", false); // 점프 애니메이션 종료
+        }
     }
 }
