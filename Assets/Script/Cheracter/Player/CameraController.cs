@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
 
     [Header("카메라에 줌 제어")]
     public float zoomSpeed = 2f;     // 줌 속도
-    public float distance = 5f;       // 타겟과의 초기 거리
+    public float distance =  2f;       // 타겟과의 초기 거리
     public float minDistance = 2f;    // 최소 거리
     public float maxDistance = 5f;    // 최대 거리
 

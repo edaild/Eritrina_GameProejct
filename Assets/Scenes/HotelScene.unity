@@ -53621,7 +53621,7 @@ MonoBehaviour:
   target: {fileID: 312638042}
   offset: {x: 0, y: 0, z: 0}
   zoomSpeed: 2
-  distance: 5
+  distance: 2
   minDistance: 2
   maxDistance: 5
   rotateSpeed: 5
@@ -72562,7 +72562,7 @@ GameObject:
   - component: {fileID: 1290221064}
   m_Layer: 0
   m_Name: NPC
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72717,8 +72717,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NpcCharacter: []
-  fKeyUI: {fileID: 0}
+  FKeyUI: {fileID: 0}
   NpcSpeed: 0
+  textUI: {fileID: 2025463971}
+  npcName: {fileID: 137723211}
+  textObject: {fileID: 1355275551}
+  npcImags: {fileID: 0}
+  hpbar: {fileID: 1491474458}
+  menuButton: {fileID: 1055503553}
+  mainMenu: {fileID: 486556951}
+  text_Count: 0
+  NpcCheck: 0
 --- !u!95 &1290221064
 Animator:
   serializedVersion: 5
