@@ -22,7 +22,6 @@ public class PlayerMoveMont : MonoBehaviour
     private void Update()
     {
         HandleMovement();
-        HandleJump();
     }
 
     private void HandleMovement()
@@ -46,27 +45,6 @@ public class PlayerMoveMont : MonoBehaviour
         if (movement != Vector3.zero)
         {
             transform.LookAt(transform.position + movement);
-        }
-    }
-
-    private void HandleJump()
-    {
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            // 점프
-            playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
-            animator.SetBool("IsJump", true); // 점프 애니메이션 시작
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        // 플레이어가 땅에 있는지 Check (태그를 사용)
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-            animator.SetBool("IsJump", false); // 점프 애니메이션 종료
         }
     }
 }
