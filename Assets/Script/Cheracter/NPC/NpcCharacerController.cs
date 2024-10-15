@@ -28,9 +28,10 @@ public class NpcCharacerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            Debug.Log("대화를 할려면 키보드 F 키를 누르세요");
+            if (Input.GetKey(KeyCode.F))
             {
-                // 각자 스크립트에서 상효작용이 진행된다. 물건일 경우 인벤토리 창에 추가 대화 일 경우 대화창 활성화
+
             }
         }
     }
