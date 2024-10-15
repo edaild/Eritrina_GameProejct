@@ -13021,6 +13021,7 @@ GameObject:
   - component: {fileID: 312638040}
   - component: {fileID: 312638039}
   - component: {fileID: 312638038}
+  - component: {fileID: 312638049}
   - component: {fileID: 312638044}
   - component: {fileID: 312638045}
   - component: {fileID: 312638046}
@@ -13235,6 +13236,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DieImage: {fileID: 1794347166}
   healthBar: {fileID: 1491474460}
+--- !u!114 &312638049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312638037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99520cb1dc6fd94ea5ca07b3ad46e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLevel: 1
+  levelText: {fileID: 1772471379}
 --- !u!1 &316861233
 GameObject:
   m_ObjectHideFlags: 0

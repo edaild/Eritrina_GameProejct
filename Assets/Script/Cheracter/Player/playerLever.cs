@@ -13,16 +13,17 @@ public class playerLever : MonoBehaviour
     [Tooltip("Text component to display the player level")]
     public Text levelText;
 
-    private const float MaxLevel = 60f;
+    private const float MaxLevel = 40f;
 
     private void Update()
     {
         HandIeInput();
+        updateleveldisplay();
     }
 
     private void HandIeInput()
     {
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             IncreaseLevel();
         }
