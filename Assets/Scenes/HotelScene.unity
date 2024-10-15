@@ -72717,7 +72717,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NpcCharacter: []
-  FKeyUI: {fileID: 0}
   NpcSpeed: 0
   textUI: {fileID: 2025463971}
   npcName: {fileID: 137723211}
@@ -72725,7 +72724,6 @@ MonoBehaviour:
   npcImags: {fileID: 0}
   hpbar: {fileID: 1491474458}
   menuButton: {fileID: 1055503553}
-  mainMenu: {fileID: 486556951}
   text_Count: 0
   NpcCheck: 0
 --- !u!95 &1290221064
@@ -117654,8 +117652,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1100571042}
-  - {fileID: 2036058506}
   - {fileID: 1970897720}
   - {fileID: 1322318054}
   - {fileID: 965370500}
@@ -117676,3 +117672,5 @@ SceneRoots:
   - {fileID: 1871151403}
   - {fileID: 837251536}
   - {fileID: 305228436}
+  - {fileID: 1100571042}
+  - {fileID: 2036058506}
