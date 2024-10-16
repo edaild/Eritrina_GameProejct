@@ -17,6 +17,7 @@ public class NpcCharacterController : MonoBehaviour
     public GameObject npcImags; // NPC 이미지 (현재 사용되지 않음)
     public GameObject hpbar; // HP 바 (현재 비활성화)
     public GameObject menuButton; // 메뉴 버튼 (현재 비활성화)
+
     public int text_Count = 0; // 대화 카운트
 
     public bool NpcCheck; // NPC와의 대화 가능 여부
@@ -38,7 +39,7 @@ public class NpcCharacterController : MonoBehaviour
                 if (transform.CompareTag("NPC") && text_Count == 0)
                 {
                     textUI.SetActive(true); // 대화 UI 활성화
-                    hpbar.SetActive(false); // HP 바 비활성화
+                    hpbar. SetActive(false); // HP 바 비활성화
                     menuButton.SetActive(false); // 메뉴 버튼 비활성화
                     npcName.text = "아이"; // NPC 이름 설정
                     textObject.text = "안녕하세요."; // 첫 번째 대화 내용
