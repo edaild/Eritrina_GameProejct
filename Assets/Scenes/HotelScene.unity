@@ -21491,7 +21491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &414629572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53889,7 +53889,7 @@ MonoBehaviour:
   distance: 2
   minDistance: 2
   maxDistance: 5
-  rotateSpeed: 500
+  rotateSpeed: 4000
   limitAngle: 70
   dragLimit: 5
 --- !u!1 &967334795
