@@ -53889,7 +53889,7 @@ MonoBehaviour:
   distance: 2
   minDistance: 2
   maxDistance: 5
-  rotateSpeed: 5
+  rotateSpeed: 500
   limitAngle: 70
   dragLimit: 5
 --- !u!1 &967334795
