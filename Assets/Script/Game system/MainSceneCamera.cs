@@ -5,10 +5,10 @@ using UnityEngine.UIElements;
 
 public class MainSceneCamera : MonoBehaviour
 {
-    public float rotatespeed = 0.05f;
+    public float rotatespeed = 5f;
     
     void Update()
     {
-        transform.Rotate(new Vector3(0, rotatespeed, 0));     
+        transform.Rotate(new Vector3(0, rotatespeed, 0) * Time.deltaTime);     
     }
 }
