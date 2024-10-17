@@ -63,6 +63,7 @@ public class NpcCharacterController : MonoBehaviour
                 textUI.SetActive(false); // 모든 대화가 끝나면 UI 비활성화
                 text_Count = 0; // 대화 카운트 초기화
                 NpcCheck = false; // 대화 불가능으로 설정
+                hpbar. SetActive(true); // player HP 바 활성화
             }
         }
         else
@@ -88,6 +89,7 @@ public class NpcCharacterController : MonoBehaviour
         {
             NpcCheck = false; // 대화 불가능으로 설정
             textUI.SetActive(false); // 대화 UI 비활성화
+            hpbar.SetActive(true); // Player Hp바를 활성화
             text_Count = 0; // 대화 카운트 초기화
         }
     }
