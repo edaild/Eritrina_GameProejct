@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
     public float maxDistance = 5f;    // 최대 거리
 
     [Header("카메라에 회전 제어")]
-    public float rotateSpeed = 4000f;  // 회전 속도
+    public float rotateSpeed = 150f;  // 회전 속도
     public float limitAngle = 70.0f;  // 수직 회전의 제한 각도
     public float dragLimit = 5.0f;    // 드래그 제한 거리
 
