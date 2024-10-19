@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/preparationScene.unity
     guid: dd881835c03d58a4a9037e889c14e44c
+  - enabled: 1
+    path: Assets/Scenes/LobbyScene.unity
+    guid: 25a1217507486dd42a9218c269ae2152
   m_configObjects: {}
