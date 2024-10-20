@@ -49803,8 +49803,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 935298851}
   m_TextComponent: {fileID: 564274535}
   m_Placeholder: {fileID: 292884944}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -101453,7 +101453,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\rVersion 0.001"
+  m_Text: "\rVersion 0.01"
 --- !u!222 &1888107161
 CanvasRenderer:
   m_ObjectHideFlags: 0

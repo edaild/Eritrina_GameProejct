@@ -8,6 +8,7 @@ TagManager:
   - NPC
   - Enemy
   - Lobby In
+  - Lobby Out
   layers:
   - Default
   - TransparentFX
