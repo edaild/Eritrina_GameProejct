@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
 
     [Header("카메라에 줌 제어")]
     public float zoomSpeed = 2f;     // 줌 속도
-    public float distance =  2f;       // 타겟과의 초기 거리
+    public float distance = 2f;       // 타겟과의 초기 거리
     public float minDistance = 2f;    // 최소 거리
     public float maxDistance = 5f;    // 최대 거리
 
@@ -46,7 +46,15 @@ public class CameraController : MonoBehaviour
     void UpdateCameraPosition()
     {
         // 타겟의 위치에 오프셋을 더하여 카메라 위치 설정
-        transform.position = target.position + offset;
+        Vector3 targetPosition = target.position + offset;
+
+        // 카메라의 Y 위치가 땅 아래로 내려가지 않도록 제한
+        if (targetPosition.y < 0) // 0은 땅의 Y 좌표입니다. 필요에 따라 조정하세요.
+        {
+            targetPosition.y = 0; // 카메라의 Y 좌표를 0으로 설정
+        }
+
+        transform.position = targetPosition; // 카메라 위치 업데이트
     }
 
     void Zoom()
