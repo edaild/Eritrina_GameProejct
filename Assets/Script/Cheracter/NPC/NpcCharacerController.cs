@@ -41,7 +41,7 @@ public class NpcCharacterController : MonoBehaviour
                 {
                     functionUI.SetActive(false);
                     textUI.SetActive(true); // 대화 UI 활성화
-                    hpbar. SetActive(false); // HP 바 비활성화
+                    hpbar.SetActive(false); // HP 바 비활성화
                     menuButton.SetActive(false); // 메뉴 버튼 비활성화
                     functionUI.SetActive(false);
                     npcName.text = "아이"; // NPC 이름 설정
@@ -50,7 +50,8 @@ public class NpcCharacterController : MonoBehaviour
 
                 }
             }
-            if (Input.GetMouseButtonDown(0))
+            // CompareTag 가 NPC 이고 마우스 좌측 버튼을 눌렸을 경우
+            if ((transform.CompareTag("NPC") && Input.GetMouseButtonDown(0)))
             {
                 // 마우스 클릭으로 대화 진행
                 if (text_Count == 1)
