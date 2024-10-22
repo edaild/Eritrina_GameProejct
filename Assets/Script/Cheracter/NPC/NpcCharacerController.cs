@@ -47,32 +47,32 @@ public class NpcCharacterController : MonoBehaviour
                     npcName.text = "아이"; // NPC 이름 설정
                     textObject.text = "안녕하세요."; // 첫 번째 대화 내용
                     text_Count = 1; // 대화 카운트 설정
+
                 }
             }
-
-            // 마우스 클릭으로 대화 진행
-            if (text_Count == 1 && Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
-                textObject.text = "에리트리나 호텔에 오신걸 환영합니다."; // 두 번째 대화 내용
-                text_Count = 2; // 대화 카운트 증가
+                // 마우스 클릭으로 대화 진행
+                if (text_Count == 1)
+                {
+                    textObject.text = "에리트리나 호텔에 오신걸 환영합니다."; // 두 번째 대화 내용
+                    text_Count = 2; // 대화 카운트 증가
+                }
+                else if (text_Count == 2)
+                {
+                    textObject.text = "즐거운 휴식 되세요."; // 세 번째 대화 내용
+                    text_Count = 3; // 대화 카운트 증가
+                }
+                else if (text_Count == 3)
+                {
+                    textUI.SetActive(false); // 모든 대화가 끝나면 UI 비활성화
+                    text_Count = 0; // 대화 카운트 초기화
+                    NpcCheck = false; // 대화 불가능으로 설정
+                    hpbar.SetActive(true); // player HP 바 활성화
+                    functionUI.SetActive(true);
+                    menuButton.SetActive(true);
+                }
             }
-            else if (text_Count == 2 && Input.GetMouseButton(0))
-            {
-                textObject.text = "즐거운 휴식 되세요."; // 세 번째 대화 내용
-                text_Count = 3; // 대화 카운트 증가
-            }
-            else if (text_Count == 3 && Input.GetMouseButton(0))
-            {
-                textUI.SetActive(false); // 모든 대화가 끝나면 UI 비활성화
-                text_Count = 0; // 대화 카운트 초기화
-                NpcCheck = false; // 대화 불가능으로 설정
-                hpbar. SetActive(true); // player HP 바 활성화
-               functionUI.SetActive(true);
-            }
-        }
-        else
-        {
-           // FKeyUI.SetActive(false); // 대화 불가능 시 F 키 안내 UI 비활성화
         }
     }
 
