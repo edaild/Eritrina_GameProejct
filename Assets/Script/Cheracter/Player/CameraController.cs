@@ -48,10 +48,12 @@ public class CameraController : MonoBehaviour
         // 타겟의 위치에 오프셋을 더하여 카메라 위치 설정
         Vector3 targetPosition = target.position + offset;
 
-        // 카메라의 Y 위치가 땅 아래로 내려가지 않도록 제한
-        if (targetPosition.y < 0) // 0은 땅의 Y 좌표입니다. 필요에 따라 조정하세요.
+        // Raycasting을 사용하여 지면의 높이 확인
+        RaycastHit hit;
+        if (Physics.Raycast(targetPosition, Vector3.down, out hit))
         {
-            targetPosition.y = 0; // 카메라의 Y 좌표를 0으로 설정
+            // 지면의 Y 위치로 카메라의 Y 위치를 조정
+            targetPosition.y = Mathf.Max(targetPosition.y, hit.point.y + 0.5f); // 지면 높이에 약간의 오프셋 추가
         }
 
         transform.position = targetPosition; // 카메라 위치 업데이트

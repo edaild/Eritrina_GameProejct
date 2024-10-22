@@ -4,13 +4,14 @@ using UnityEngine.UI;
 public class CharacterSystem : MonoBehaviour
 {
     [Header("Player Movement")]
-    [Tooltip("플레이어 걷는 속도")] public float playerSpeed = 5f; // 이동 속도
-    [Tooltip("플레이어 뛰는 속도")] public float runSpeed = 10f; // 뛰는 속도
+    public float playerSpeed = 5f; // 이동 속도
+    public float runSpeed = 10f; // 뛰는 속도
+    public float rotationSpeed = 7f;
 
     [Header("Character System")]
-    [Tooltip("캐릭터 배열")] public GameObject[] playerCharacter = new GameObject[2]; // 캐릭터 배열
-    [Tooltip("버튼 배열")] public Button[] characterButtons; // UI 버튼 배열
-    [Tooltip("애니메이터 배열")] public Animator[] animators; // 애니메이터 배열
+    public GameObject[] playerCharacter = new GameObject[2]; // 캐릭터 배열
+    public Button[] characterButtons; // UI 버튼 배열
+    public Animator[] animators; // 애니메이터 배열
 
     private Rigidbody playerRigidbody; // Rigidbody
 
@@ -36,9 +37,13 @@ public class CharacterSystem : MonoBehaviour
         float xInput = Input.GetAxis("Horizontal");
         float zInput = Input.GetAxis("Vertical");
 
+        // 이동 방향 벡터 계산 및 정규화
         Vector3 movement = new Vector3(xInput, 0, zInput).normalized;
 
+        // 현재 속도 결정
         float currentSpeed = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) ? runSpeed : playerSpeed;
+
+        // Rigidbody의 속도 설정
         playerRigidbody.velocity = new Vector3(movement.x * currentSpeed, playerRigidbody.velocity.y, movement.z * currentSpeed);
 
         // 활성화된 캐릭터의 애니메이터 가져오기
@@ -52,10 +57,14 @@ public class CharacterSystem : MonoBehaviour
             currentAnimator.SetBool("IsRun", isMoving && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)));
         }
 
+        // 플레이어가 이동할 경우 시선 방향 조정
         if (movement != Vector3.zero)
         {
-            transform.LookAt(transform.position + movement);
+            // 회전 방향을 설정하여 플레이어가 이동 방향을 바라보도록 함
+            Quaternion targetRotation = Quaternion.LookRotation(movement);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
+
     }
 
     private void InitializeAnimators()
