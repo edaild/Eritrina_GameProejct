@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
     public float maxDistance = 5f;    // 최대 거리
 
     [Header("카메라에 회전 제어")]
-    public float rotateSpeed = 150f;  // 회전 속도
+    public float rotateSpeed = 360f;  // 회전 속도
     public float limitAngle = 70.0f;  // 수직 회전의 제한 각도
     public float dragLimit = 5.0f;    // 드래그 제한 거리
 
@@ -73,11 +73,10 @@ public class CameraController : MonoBehaviour
 
         if (isRotate)
         {
-            // 드래그 상태에서만 회전
             Vector3 mouseDelta = Input.mousePosition - lastMousePosition; // 현재 마우스 위치와 마지막 위치의 차이
             if (mouseDelta.magnitude > dragLimit) // 드래그 제한
             {
-                Rotation(mouseDelta * Time.deltaTime);
+                Rotation(mouseDelta);
             }
         }
 
@@ -87,8 +86,8 @@ public class CameraController : MonoBehaviour
     public void Rotation(Vector3 mouseDelta)
     {
         // 마우스 이동량을 기반으로 회전 업데이트
-        mouseX += mouseDelta.x * rotateSpeed * Time.deltaTime;
-        mouseY = Mathf.Clamp(mouseY - mouseDelta.y * rotateSpeed * Time.deltaTime, -limitAngle, limitAngle); // Y축 회전 클램프
+        mouseX += mouseDelta.x * rotateSpeed * 0.01f; // 0.01f로 조정하여 더 일관된 회전 속도 유지
+        mouseY = Mathf.Clamp(mouseY - mouseDelta.y * rotateSpeed * 0.01f, -limitAngle, limitAngle); // Y축 회전 클램프
 
         // Y축 회전을 360도로 제한하기 위해 0에서 360도 사이로 유지
         mouseX = mouseX % 360; // mouseX를 360도로 나눈 나머지로 설정
