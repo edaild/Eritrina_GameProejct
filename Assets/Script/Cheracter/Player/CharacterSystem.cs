@@ -37,6 +37,7 @@ public class CharacterSystem : MonoBehaviour
         float xInput = Input.GetAxis("Horizontal");
         float zInput = Input.GetAxis("Vertical");
 
+
         // 이동 방향 벡터 계산 및 정규화
         Vector3 movement = new Vector3(xInput, 0, zInput).normalized;
 
@@ -64,7 +65,6 @@ public class CharacterSystem : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(movement);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
-
     }
 
     private void InitializeAnimators()
