@@ -8111,9 +8111,10 @@ MonoBehaviour:
   distance: 2
   minDistance: 2
   maxDistance: 5
-  rotateSpeed: 150
+  rotateSpeed: 80
   limitAngle: 70
   dragLimit: 5
+  isRotate: 0
 --- !u!114 &1627657460
 MonoBehaviour:
   m_ObjectHideFlags: 0
