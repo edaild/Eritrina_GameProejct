@@ -37,9 +37,20 @@ public class CharacterSystem : MonoBehaviour
         float xInput = Input.GetAxis("Horizontal");
         float zInput = Input.GetAxis("Vertical");
 
+        // 카메라의 방향을 가져와서 이동 방향을 계산
+        Vector3 cameraForward = Camera.main.transform.forward;
+        Vector3 cameraRight = Camera.main.transform.right;
 
-        // 이동 방향 벡터 계산 및 정규화
-        Vector3 movement = new Vector3(xInput, 0, zInput).normalized;
+        // Y축 방향은 무시하고 평면에서의 이동 방향을 계산
+        cameraForward.y = 0;
+        cameraRight.y = 0;
+
+        // 정규화
+        cameraForward.Normalize();
+        cameraRight.Normalize();
+
+        // 입력에 따른 이동 벡터 계산
+        Vector3 movement = (cameraRight * xInput + cameraForward * zInput).normalized;
 
         // 현재 속도 결정
         float currentSpeed = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) ? runSpeed : playerSpeed;
@@ -66,6 +77,7 @@ public class CharacterSystem : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
     }
+
 
     private void InitializeAnimators()
     {
