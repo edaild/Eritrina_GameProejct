@@ -15,6 +15,8 @@ public class CharacterSystem : MonoBehaviour
 
     private Rigidbody playerRigidbody; // Rigidbody
 
+    public NpcCharacterController npccharacterController;
+
     // 활성화된 버튼 색상 (16진수 색상 코드 #3E3593)
     private Color activeColor = new Color32(62, 53, 147, 178); // RGB(62, 53, 147) 및 Alpha(255)
     private Color inactiveColor = new Color32(0, 0, 0, 178); // RGB(0, 0, 0) 및 Alpha(255)
@@ -22,15 +24,25 @@ public class CharacterSystem : MonoBehaviour
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
+        npccharacterController = GetComponent<NpcCharacterController>();
         InitializeAnimators();
         CharacterReset();
     }
 
     private void Update()
     {
+        //NotHandleMovementCheck();
         HandleMovement();
         HandleCharacterChangeKeyboard();
     }
+
+    //public void NotHandleMovementCheck()
+    //{
+    // if (npccharacterController.NpcTextcheck == true)
+    //    {
+    //        HandleMovement();
+    //    }
+    //}
 
     private void HandleMovement()
     {

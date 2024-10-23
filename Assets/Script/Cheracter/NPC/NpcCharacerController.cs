@@ -18,18 +18,38 @@ public class NpcCharacterController : MonoBehaviour
     public GameObject npcImags; // NPC 이미지 (현재 사용되지 않음)
     public GameObject hpbar; // HP 바 (현재 비활성화)
     public GameObject menuButton; // 메뉴 버튼 (현재 비활성화)
+    public bool NpcCheck; // NPC와의 대화 가능 여부
+    public bool NpcTextcheck;
 
     public int text_Count = 0; // 대화 카운트
 
-    public bool NpcCheck; // NPC와의 대화 가능 여부
+  
 
     private void Start()
     {
         NpcCheck = false; // 초기에는 대화 불가능 상태
+        NpcTextcheck = false;
         textUI.SetActive(false); // 대화 UI 비활성화
     }
 
     private void Update()
+    {
+        NpcCharacterCheck();
+    }
+
+    //public void NPCtextcheck()
+    //{
+    //    if (textUI.gameObject.activeSelf) 
+    //    {
+    //        NpcTextcheck = true;
+    //    }
+    //    else
+    //    {
+    //        NpcTextcheck = false;
+    //    }
+    //}
+
+    private void NpcCharacterCheck()
     {
         if (NpcCheck)
         {
