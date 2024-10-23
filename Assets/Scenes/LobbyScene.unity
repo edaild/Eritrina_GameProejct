@@ -1474,7 +1474,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: be895e54e83d78549971fe277d875d1e, type: 2}
+  - {fileID: 2100000, guid: e1f1333a34247a649b8dffcbf481411a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8114,7 +8114,6 @@ MonoBehaviour:
   rotateSpeed: 80
   limitAngle: 70
   dragLimit: 5
-  isRotate: 0
 --- !u!114 &1627657460
 MonoBehaviour:
   m_ObjectHideFlags: 0
