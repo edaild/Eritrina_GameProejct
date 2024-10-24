@@ -13,9 +13,11 @@ public class CharacterSystem : MonoBehaviour
     public Button[] characterButtons; // UI 버튼 배열
     public Animator[] animators; // 애니메이터 배열
 
+    public GameObject TextUI;
+
     private Rigidbody playerRigidbody; // Rigidbody
 
-    public NpcCharacterController npccharacterController;
+   // public NpcCharacterController npccharacterController;
 
     // 활성화된 버튼 색상 (16진수 색상 코드 #3E3593)
     private Color activeColor = new Color32(62, 53, 147, 178); // RGB(62, 53, 147) 및 Alpha(255)
@@ -24,7 +26,7 @@ public class CharacterSystem : MonoBehaviour
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
-        npccharacterController = GetComponent<NpcCharacterController>();
+     //   npccharacterController = GetComponent<NpcCharacterController>();
         InitializeAnimators();
         CharacterReset();
     }
@@ -36,13 +38,13 @@ public class CharacterSystem : MonoBehaviour
         HandleCharacterChangeKeyboard();
     }
 
-    //public void NotHandleMovementCheck()
-    //{
-    // if (npccharacterController.NpcTextcheck == true)
-    //    {
-    //        HandleMovement();
-    //    }
-    //}
+    public void NotHandleMovementCheck()
+    {
+        if (TextUI.activeSelf == true)
+        {
+            HandleMovement();
+        }
+    }
 
     private void HandleMovement()
     {

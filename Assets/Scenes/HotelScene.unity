@@ -35411,8 +35411,9 @@ MonoBehaviour:
   npcImags: {fileID: 0}
   hpbar: {fileID: 2038936781}
   menuButton: {fileID: 1137136508}
-  text_Count: 0
   NpcCheck: 0
+  NpcTextcheck: 0
+  text_Count: 0
 --- !u!54 &642698972
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -51496,9 +51497,10 @@ MonoBehaviour:
   distance: 2
   minDistance: 2
   maxDistance: 5
-  rotateSpeed: 150
+  rotateSpeed: 10
   limitAngle: 70
   dragLimit: 5
+  rotationSmoothTime: 0.1
 --- !u!114 &923725607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108567,6 +108569,7 @@ MonoBehaviour:
   animators:
   - {fileID: 1779158233}
   - {fileID: 654472979}
+  TextUI: {fileID: 1109744170}
 --- !u!114 &2005067900
 MonoBehaviour:
   m_ObjectHideFlags: 0

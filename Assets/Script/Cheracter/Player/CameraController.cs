@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
     public float maxDistance = 5f;
 
     [Header("카메라에 회전 제어")]
-    public float rotateSpeed = 360f;
+    public float rotateSpeed = 10f;
     public float limitAngle = 70.0f;   // 수직 회전 제한
     public float dragLimit = 5.0f;
     public float rotationSmoothTime = 0.1f; // 회전 부드럽게 하는 시간
@@ -73,13 +73,13 @@ public class CameraController : MonoBehaviour
 
     void CameraRotate()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            isRotate = true;
-        }
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetKey(KeyCode.LeftAlt))
         {
             isRotate = false;
+        }
+        else
+        {
+            isRotate = true;
         }
 
         if (isRotate)
@@ -96,15 +96,11 @@ public class CameraController : MonoBehaviour
 
     public void Rotation(Vector3 mouseDelta)
     {
-        mouseX += mouseDelta.x * rotateSpeed * 0.01f;
-        mouseY = Mathf.Clamp(mouseY - mouseDelta.y * rotateSpeed * 0.01f, -limitAngle, limitAngle);
-        mouseX = mouseX % 360;
-
-        // 목표 회전 설정
-        targetRotation = Quaternion.Euler(-mouseY, mouseX, 0.0f);
-        // 부드럽게 회전
-        currentRotation = Quaternion.Slerp(currentRotation, targetRotation, Time.deltaTime / rotationSmoothTime);
-        // 회전 적용
-        transform.rotation = currentRotation;
+        mouseX += mouseDelta.x * rotateSpeed * 0.01f; // 0.01f로 조정하여 더 일관된 회전 속도 유지
+        mouseY = Mathf.Clamp(mouseY - mouseDelta.y * rotateSpeed * 0.01f, -limitAngle, limitAngle); // Y축 회전 클램프
+        // Y축 회전을 360도로 제한하기 위해 0에서 360도 사이로 유지
+        mouseX = mouseX % 360; // mouseX를 360도로 나눈 나머지로 설정
+        // 카메라에 회전 적용
+        transform.rotation = Quaternion.Euler(-mouseY, mouseX, 0.0f);
     }
 }
