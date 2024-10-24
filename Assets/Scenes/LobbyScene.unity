@@ -6816,7 +6816,7 @@ MonoBehaviour:
   animators:
   - {fileID: 943872336}
   - {fileID: 1198407824}
-  npccharacterController: {fileID: 0}
+  TextUI: {fileID: 0}
 --- !u!114 &1393276805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8112,7 +8112,7 @@ MonoBehaviour:
   distance: 2
   minDistance: 2
   maxDistance: 5
-  rotateSpeed: 10
+  rotateSpeed: 20
   limitAngle: 70
   dragLimit: 5
   rotationSmoothTime: 0.1

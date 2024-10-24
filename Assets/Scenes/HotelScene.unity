@@ -51497,7 +51497,7 @@ MonoBehaviour:
   distance: 2
   minDistance: 2
   maxDistance: 5
-  rotateSpeed: 10
+  rotateSpeed: 20
   limitAngle: 70
   dragLimit: 5
   rotationSmoothTime: 0.1
