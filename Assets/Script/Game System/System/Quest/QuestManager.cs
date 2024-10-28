@@ -18,8 +18,8 @@ public class QuestManager : MonoBehaviour
     {
         var steps = new List<string>
         {
-            "앞의 있는 소녀 하고 대화하기",
-            "호텔 들어가기",
+            "앞의 있는 수상한 소녀와 대화하기",
+            "호텔에 들어가 데스크에 가서 체크인 하기",
             "데스크에 가서 체크인 하기",
         };
 

@@ -5,11 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - NPC
   - Enemy
   - Lobby In
   - Lobby Out
   - NPC01
+  - NPC02
   layers:
   - Default
   - TransparentFX

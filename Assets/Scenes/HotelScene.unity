@@ -35655,7 +35655,7 @@ MonoBehaviour:
   NpcTextcheck: 0
   text_Count: 0
   NpcQuestCount: 0
-  questManager: {fileID: 0}
+  questManager: {fileID: 1255147679}
   NPC: 0
 --- !u!1 &651193551
 GameObject:
@@ -40500,7 +40500,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   functionUI: {fileID: 2003153234}
   functionText: {fileID: 400947344}
-  MaineQuest01: {fileID: 642698979}
 --- !u!1001 &745323870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110702,7 +110701,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   functionUI: {fileID: 2003153234}
   functionText: {fileID: 400947344}
-  MaineQuest01: {fileID: 642698979}
 --- !u!1 &2024515200
 GameObject:
   m_ObjectHideFlags: 0
