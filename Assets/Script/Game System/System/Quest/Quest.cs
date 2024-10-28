@@ -1,7 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
+[System.Serializable]
 public class Quest
 {
     public string title; // 퀘스트 제목
@@ -16,6 +15,7 @@ public class Quest
         this.currentStep = 0;
         this.experience = 0;
     }
+
     public void CompleteStep()
     {
         if (currentStep < steps.Count) // 현재 단계가 유효한 경우
@@ -32,7 +32,7 @@ public class Quest
     private void CompleteQuest()
     {
         experience += 1000; // 경험치 추가
-        Debug.Log($"퀘스트 '{title}' 완료! 경험치 {experience} 획득!"); // 완료 메시지 출력
+        //Debug.Log($"퀘스트 '{title}' 완료! 경험치 {experience} 획득!"); // 완료 메시지 출력
     }
 
     // 현재 단계의 설명을 반환하는 메서드
@@ -40,6 +40,16 @@ public class Quest
     {
         return currentStep < steps.Count ? steps[currentStep] : "퀘스트가 완료되었습니다."; // 단계 설명 반환
     }
+
+    // 현재 단계 인덱스를 반환하는 메서드
+    public int GetCurrentStepIndex()
+    {
+        return currentStep;
+    }
+
+    // 총 단계 수를 반환하는 메서드
+    public int GetTotalSteps()
+    {
+        return steps.Count;
+    }
 }
-
-

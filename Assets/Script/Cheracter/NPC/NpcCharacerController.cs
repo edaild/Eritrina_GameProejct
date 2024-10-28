@@ -25,6 +25,7 @@ public class NpcCharacterController : MonoBehaviour
     public int text_Count = 0; // 대화 카운트
 
     public QuestManager questManager; // 퀘스트 매니저 참조
+    public bool NPC = false;
 
     private void Start()
     {
@@ -79,7 +80,8 @@ public class NpcCharacterController : MonoBehaviour
                     hpbar.SetActive(true); // Player HP 바 활성화
                     functionUI.SetActive(true); // F 키 안내 UI 활성화
                     menuButton.SetActive(true); // 메뉴 버튼 활성화
-                    questManager.CompleteCurrentStep(); // 1단계 완료
+
+                    questManager.CompleteCurrentStep(); //  NPC와 대화 완료
                 }
             }
         }
@@ -93,7 +95,7 @@ public class NpcCharacterController : MonoBehaviour
             Debug.Log("대화를 하려면 F 키를 누르세요");
             functionUI.SetActive(true); // F 키 안내 UI 활성화
             functiontext.text = "대화   F"; // 안내 텍스트 설정
-            NpcCheck = true; // NPC와의 대화 가능으로 설정
+            NpcCheck = true; // NPC와의 대화 가능으로 설정           
         }
     }
 
@@ -110,3 +112,5 @@ public class NpcCharacterController : MonoBehaviour
         }
     }
 }
+
+

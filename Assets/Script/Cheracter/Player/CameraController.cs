@@ -30,12 +30,16 @@ public class CameraController : MonoBehaviour
     private Quaternion targetRotation;       // 목표 회전
     private Quaternion currentRotation;      // 현재 회전
 
+    public NpcCharacterController npccharacterController;
+    public MaineQuest01 MaineQuest01;
     void Start()
     {
         mainCamera = Camera.main.transform;
         UpdateCameraPosition();
         lastMousePosition = Input.mousePosition;
         currentRotation = transform.rotation; // 현재 회전 초기화
+        npccharacterController = GetComponent<NpcCharacterController>();
+        MaineQuest01 = GetComponent<MaineQuest01>();
     }
 
     void Update()

@@ -9,15 +9,16 @@ public class CharacterSystem : MonoBehaviour
     public float rotationSpeed = 7f;
 
     [Header("Character System")]
-    public GameObject[] playerCharacter = new GameObject[2]; // 캐릭터 배열
+    public GameObject[] playerCharacter = new GameObject[4]; // 캐릭터 배열
     public Button[] characterButtons; // UI 버튼 배열
     public Animator[] animators; // 애니메이터 배열
 
-    public GameObject TextUI;
+    public GameObject TextUI; // UI 텍스트 오브젝트
 
     private Rigidbody playerRigidbody; // Rigidbody
 
-   // public NpcCharacterController npccharacterController;
+    public NpcCharacterController npccharacterController;
+    public MaineQuest01 MaineQuest01;
 
     // 활성화된 버튼 색상 (16진수 색상 코드 #3E3593)
     private Color activeColor = new Color32(62, 53, 147, 178); // RGB(62, 53, 147) 및 Alpha(255)
@@ -26,21 +27,21 @@ public class CharacterSystem : MonoBehaviour
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
-     //   npccharacterController = GetComponent<NpcCharacterController>();
+        npccharacterController = GetComponent<NpcCharacterController>();
+        MaineQuest01 = GetComponent<MaineQuest01>();
         InitializeAnimators();
         CharacterReset();
     }
 
     private void Update()
     {
-        //NotHandleMovementCheck();
-        HandleMovement();
+        NotHandleMovementCheck();
         HandleCharacterChangeKeyboard();
     }
 
     public void NotHandleMovementCheck()
     {
-        if (TextUI.activeSelf == true)
+        if (!TextUI.activeSelf) // TextUI가 비활성화된 경우에만 HandleMovement 호출
         {
             HandleMovement();
         }
@@ -91,7 +92,6 @@ public class CharacterSystem : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
     }
-
 
     private void InitializeAnimators()
     {

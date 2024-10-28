@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameLodingscipt : MonoBehaviour
 {
     [Header("Loading Icons")]
     public GameObject[] loadingIcons; // 로딩 아이콘 배열

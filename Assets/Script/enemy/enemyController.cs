@@ -8,9 +8,9 @@ public class enemyController : MonoBehaviour
     // 몬스터 health
 
     [Header("몬스터 설정")]
-    [Tooltip("몬스터 이동 속도")] public float enemySpeed = 3f;
-    [Tooltip("플레이어")] public Transform player;
-    [Tooltip("플레이어와의 최소 거리")] public float stoppingDistance = 2f;
+    public float enemySpeed = 3f; // 몬스터 이동 속도
+    public Transform player; //타겟 플레이어
+    public float stoppingDistance = 2f; // 플레이어와 최소 거리
 
     private bool playercheck;
 
