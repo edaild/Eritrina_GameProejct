@@ -17,8 +17,7 @@ public class CharacterSystem : MonoBehaviour
 
     private Rigidbody playerRigidbody; // Rigidbody
 
-    public NpcCharacterController npccharacterController;
-    public MaineQuest01 MaineQuest01;
+    public MaineQuest01 mainQuest01;
 
     // 활성화된 버튼 색상 (16진수 색상 코드 #3E3593)
     private Color activeColor = new Color32(62, 53, 147, 178); // RGB(62, 53, 147) 및 Alpha(255)
@@ -27,8 +26,7 @@ public class CharacterSystem : MonoBehaviour
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
-        npccharacterController = GetComponent<NpcCharacterController>();
-        MaineQuest01 = GetComponent<MaineQuest01>();
+        mainQuest01 = GetComponent<MaineQuest01>();
         InitializeAnimators();
         CharacterReset();
     }

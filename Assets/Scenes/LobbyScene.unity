@@ -492,14 +492,13 @@ MonoBehaviour:
   textUI: {fileID: 1761744982}
   npcName: {fileID: 1833475186}
   textObject: {fileID: 539660844}
-  npcImages: {fileID: 0}
   hpbar: {fileID: 1376448023}
   menuButton: {fileID: 1283159427}
   NpcCheck: 0
   NpcTextcheck: 0
   text_Count: 0
   NpcQuestCount: 0
-  questManager: {fileID: 1047086220}
+  questManager: {fileID: 0}
   NPC: 0
 --- !u!222 &51614700
 CanvasRenderer:
@@ -6191,8 +6190,7 @@ MonoBehaviour:
   - {fileID: 1943338183}
   - {fileID: 705868294}
   TextUI: {fileID: 1761744982}
-  npccharacterController: {fileID: 0}
-  MaineQuest01: {fileID: 0}
+  mainQuest01: {fileID: 0}
 --- !u!114 &1093730352
 MonoBehaviour:
   m_ObjectHideFlags: 0

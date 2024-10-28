@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class MaineQuest01 : MonoBehaviour
 {
-    public static MaineQuest01 Instance; // Singleton Instance
 
     [Header("NPC system")]
     public GameObject[] NpcCharacter; // NPC 캐릭터 배열
@@ -29,19 +28,7 @@ public class MaineQuest01 : MonoBehaviour
     public QuestManager questManager; // 퀘스트 매니저 참조
     public bool NPC = false;
 
-    private void Awake()
-    {
-        // Singleton 패턴 구현
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // 씬 전환 시 파괴하지 않음
-        }
-        else
-        {
-            Destroy(gameObject); // 중복 방지
-        }
-    }
+   
 
     private void Start()
     {
