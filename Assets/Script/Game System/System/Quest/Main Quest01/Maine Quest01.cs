@@ -92,11 +92,13 @@ public class MaineQuest01 : MonoBehaviour
             switch (text_Count)
             {
                 case 1:
+                    npcName.text = "벨즈";
                     textObject.text = "누구세요?";
                     text_Count++;
                     break;
                 case 2:
-                    textObject.text = "아, 투숙객 이군요. 즐거운 휴식 되세요.";
+                    npcName.text = "자신을 호텔 직원이라고 밝히는 소녀";
+                    textObject.text = "투숙객 이군요. 신경쓰지 마세요 즐거운 휴식 되세요.";
                     text_Count++;
                     break;
                 case 3:
