@@ -682,7 +682,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.928, y: 1.133}
+  m_AnchoredPosition: {x: 1.9279938, y: 1.1329956}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &51614709
@@ -700,18 +700,15 @@ MonoBehaviour:
   NpcCharacter: []
   functionUI: {fileID: 1781030051}
   functiontext: {fileID: 357798081}
-  NpcSpeed: 0
   textUI: {fileID: 1761744982}
   npcName: {fileID: 1833475186}
   textObject: {fileID: 539660844}
   PlayerHpbar: {fileID: 1376448023}
   menuButton: {fileID: 1283159427}
   NpcCheck: 0
-  NpcTextcheck: 0
   text_Count: 0
-  NpcQuestCount: 0
   questManager: {fileID: 1047086220}
-  NPC: 0
+  gameManger: {fileID: 1047086219}
 --- !u!1 &61713470
 GameObject:
   m_ObjectHideFlags: 0
@@ -5635,18 +5632,15 @@ MonoBehaviour:
   NpcCharacter: []
   functionUI: {fileID: 1781030051}
   functiontext: {fileID: 357798081}
-  NpcSpeed: 0
   textUI: {fileID: 1761744982}
   npcName: {fileID: 1833475186}
   textObject: {fileID: 539660844}
   PlayerHpbar: {fileID: 1376448023}
   menuButton: {fileID: 1283159427}
   NpcCheck: 0
-  NpcTextcheck: 0
   text_Count: 0
-  NpcQuestCount: 0
   questManager: {fileID: 1047086220}
-  NPC: 0
+  gameManger: {fileID: 0}
 --- !u!1 &1048238331
 GameObject:
   m_ObjectHideFlags: 0
@@ -12131,5 +12125,5 @@ SceneRoots:
   - {fileID: 1047086221}
   - {fileID: 1093730357}
   - {fileID: 1053236339}
-  - {fileID: 51614708}
   - {fileID: 393838}
+  - {fileID: 51614708}

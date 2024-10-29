@@ -75395,8 +75395,8 @@ MonoBehaviour:
   NpcCheck: 0
   NpcTextcheck: 0
   text_Count: 0
-  NpcQuestCount: 0
   questManager: {fileID: 1409483741}
+  gameManger: {fileID: 1409483743}
   NPC: 0
 --- !u!222 &1336589592
 CanvasRenderer:
@@ -79660,8 +79660,8 @@ MonoBehaviour:
   NpcCheck: 0
   NpcTextcheck: 0
   text_Count: 0
-  NpcQuestCount: 0
   questManager: {fileID: 1409483741}
+  gameManger: {fileID: 0}
   NPC: 0
 --- !u!114 &1409483743
 MonoBehaviour:
@@ -117570,7 +117570,7 @@ SceneRoots:
   - {fileID: 1409483744}
   - {fileID: 2114539739}
   - {fileID: 1869827283}
-  - {fileID: 1336589599}
   - {fileID: 923725610}
   - {fileID: 1950653925}
   - {fileID: 701590473}
+  - {fileID: 1336589599}

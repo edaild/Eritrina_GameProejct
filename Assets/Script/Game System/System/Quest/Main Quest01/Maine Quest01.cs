@@ -5,147 +5,154 @@ using UnityEngine.UI;
 
 public class MaineQuest01 : MonoBehaviour
 {
-
     [Header("NPC system")]
-    public GameObject[] NpcCharacter; // NPC 캐릭터 배열
-
     public GameObject functionUI; // F 키 안내 UI
     public Text functiontext; // F 키 안내 텍스트
-    public float NpcSpeed; // NPC 속도 (현재 사용되지 않음)
-
     public GameObject textUI; // 대화 UI
     public Text npcName; // NPC 이름을 표시할 UI 텍스트
     public Text textObject; // 대화 내용을 표시할 UI 텍스트
-    public GameObject PlayerHpbar; // HP 바 (현재 비활성화)
-    public GameObject menuButton; // 메뉴 버튼 (현재 비활성화)
+    public GameObject PlayerHpbar; // HP 바
+    public GameObject menuButton; // 메뉴 버튼
 
     public bool NpcCheck; // NPC와의 대화 가능 여부
-    public bool NpcTextcheck; // 대화 진행 상태 (현재 사용되지 않음)
-
     public int text_Count = 0; // 대화 카운트
-    public int NpcQuestCount = 0; // 쿼스트 카운트
-
     public QuestManager questManager; // 퀘스트 매니저 참조
-    public bool NPC = false;
-
-   
+    public GameManger gameManger; // 게임 매니저 참조
 
     private void Start()
     {
-        NpcCheck = false; // 초기에는 대화 불가능 상태
-        NpcTextcheck = false;
-        textUI.SetActive(false); // 대화 UI 비활성화
+        NpcCheck = false;
+        textUI.SetActive(false);
         questManager = FindObjectOfType<QuestManager>();
+        gameManger = FindObjectOfType<GameManger>();
     }
 
     private void Update()
     {
-        NpcCharacterCheck(); // NPC 대화 체크
+        NpcCharacterCheck();
     }
 
-    private void StartConversation()                // 대화 시작시
+    private void StartConversation()
     {
-        functionUI.SetActive(false);                // F 키 안내 UI 비활성화
-        textUI.SetActive(true);                     // 대화 UI 활성화
-        PlayerHpbar.SetActive(false);                     // HP 바 비활성화
-        menuButton.SetActive(false);                // 메뉴 버튼 비활성화
+        functionUI.SetActive(false);
+        textUI.SetActive(true);
+        PlayerHpbar.SetActive(false);
+        menuButton.SetActive(false);
     }
-    private void EndConversation()                                       // 대화 종료시
-    {
-        textUI.SetActive(false);                                        // 모든 대화가 끝나면 UI 비활성화
-        text_Count = 0;                                                 // 대화 카운트 초기화
-        NpcCheck = false;                                               // 대화 불가능으로 설정
-        PlayerHpbar.SetActive(true);                                    // Player HP 바 활성화
-        functionUI.SetActive(true);                                    // F 키 안내 UI 활성화
-        menuButton.SetActive(true);                                    // 메뉴 버튼 활성화
 
+    private void EndConversation()
+    {
+        textUI.SetActive(false);
+        text_Count = 0;
+        NpcCheck = false;
+        PlayerHpbar.SetActive(true);
+        functionUI.SetActive(true);
+        menuButton.SetActive(true);
     }
+
     private void NpcCharacterCheck()
     {
-        if (NpcCheck) // NPC와 대화 가능 상태일 때
+        if (!NpcCheck) return;
+
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            if (Input.GetKeyDown(KeyCode.F)) // F 키 입력 시
+            if (transform.CompareTag("NPC01"))
             {
-                // 현재 오브젝트가 "NPC" 태그인 경우 대화 시작
-                if (transform.CompareTag("NPC01") && text_Count == 0)
-                {
-                    StartConversation();
-                    npcName.text = "수상한 소녀";                     // NPC 이름 설정
-                    textObject.text = "이 호텔은 먼가를 숨기고 있어";              // 첫 번째 대화 내용
-                    text_Count = 1;                             // 대화 카운트 설정
-                }
+                StartConversation();
+                npcName.text = "수상한 소녀";
+                textObject.text = "이 호텔은 먼가를 숨기고 있어";
+                text_Count = 1;
             }
-            if (transform.CompareTag("NPC01") && Input.GetMouseButtonDown(0) && NpcQuestCount != 0)
+            else if (transform.CompareTag("NPC02"))
             {
-                if (text_Count == 1)
-                {
-                    textUI.SetActive(false);
-                }
+                StartConversation();
+                npcName.text = "호텔 직원";
+                textObject.text = "에리트리나 호텔에 오신걸 환영합니다.";
+                text_Count = 1;
             }
-            // CompareTag가 NPC이고 마우스 좌측 버튼을 눌렸을 경우
-            if (transform.CompareTag("NPC01") && Input.GetMouseButtonDown(0) && NpcQuestCount == 0)
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (transform.CompareTag("NPC01"))
             {
-                // 마우스 클릭으로 대화 진행
-                if (text_Count == 1)
-                {
-                    textObject.text = "누구세요?";           // 두 번째 대화 내용
-                    text_Count = 2;                                                     // 대화 카운트 증가
-                }
-                else if (text_Count == 2)
-                {
-                    textObject.text = "아 투숙객 이군요 즐거운 휴식 되세요.";          // 세 번째 대화 내용
-                    text_Count = 3;                                                   // 대화 카운트 증가
-                }
-                else if (text_Count == 3)
-                {
+                HandleNpcDialogue(0); // NPC01 대화 처리
+            }
+            else if (transform.CompareTag("NPC02"))
+            {
+                HandleNpcDialogue(1); // NPC02 대화 처리
+            }
+        }
+    }
+
+    private void HandleNpcDialogue(int npcIndex)
+    {
+        if (npcIndex == 0 && gameManger.mainQuestCount == 0) // NPC01 대화
+        {
+            switch (text_Count)
+            {
+                case 1:
+                    textObject.text = "누구세요?";
+                    text_Count++;
+                    break;
+                case 2:
+                    textObject.text = "아, 투숙객 이군요. 즐거운 휴식 되세요.";
+                    text_Count++;
+                    break;
+                case 3:
                     EndConversation();
-                    FindObjectOfType<QuestManager>().CompleteCurrentStep();          // 퀘스트 단계 완료
-                    NpcQuestCount = 1;                                              // 쿼스트 단계를 다음 단계로 올린다.
-
-                }
-            }
-
-            if (Input.GetKeyDown(KeyCode.F)) // F 키 입력 시
-            {
-                // 현재 오브젝트가 "NPC" 태그인 경우 대화 시작
-                if (transform.CompareTag("NPC02") && text_Count == 0)
-                {
-                    StartConversation();
-                    npcName.text = "호텔 직원";                     // NPC 이름 설정
-                    textObject.text = "에리트리나 호텔에 오신걸 환영합니다.";              // 첫 번째 대화 내용
-                    text_Count = 1;                             // 대화 카운트 설정
-                }
-            }
-            if (transform.CompareTag("NPC02") && Input.GetMouseButtonDown(0) && NpcQuestCount != 1)
-            {
-                if (text_Count == 1)
-                {
-                    textUI.SetActive(false);
-                }
-            }
-            // CompareTag가 NPC이고 마우스 좌측 버튼을 눌렸을 경우
-            if (transform.CompareTag("NPC01") && Input.GetMouseButtonDown(0) && NpcQuestCount == 1)
-            {
-                // 마우스 클릭으로 대화 진행
-                if (text_Count == 1)
-                {
-                    textObject.text = "체크인을 도와드리겠습니다.";           // 두 번째 대화 내용
-                    text_Count = 2;                                                     // 대화 카운트 증가
-                }
-                else if (text_Count == 2)
-                {
-                    textObject.text = "즐거운 휴식 되세요.";                            // 세 번째 대화 내용
-                    text_Count = 3;                                                     // 대화 카운트 증가
-                }
-                else if (text_Count == 3)
-                {
+                    questManager.CompleteCurrentStep();
+                    gameManger.mainQuestCount = 1;
+                    break;
+                default:
                     EndConversation();
-
-                    FindObjectOfType<QuestManager>().CompleteCurrentStep();           // 퀘스트 단계 완료
-                    NpcQuestCount = 2;                                              // 쿼스트 단계를 다음 단계로 올린다.
-
-                }
+                    break;
             }
+        }
+        else if (npcIndex == 1 && gameManger.mainQuestCount == 1) // NPC02 대화
+        {
+            switch (text_Count)
+            {
+                case 1:
+                    textObject.text = "체크인을 도와드리겠습니다.";
+                    text_Count++;
+                    break;
+                case 2:
+                    textObject.text = "즐거운 휴식 되세요.";
+                    text_Count++;
+                    break;
+                case 3:
+                    EndConversation();
+                    questManager.CompleteCurrentStep();
+                    gameManger.mainQuestCount = 2;
+                    break;
+                default:
+                    EndConversation();
+                    break;
+            }
+        }
+        else
+        {
+            EndConversation(); // 대화가 아닌 경우 대화 종료
+        }
+    }
+
+    // 플레이어가 NPC와 가까워질 때 대화 가능 상태로 변경
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            NpcCheck = true;
+            functionUI.SetActive(true);
+        }
+    }
+
+    // 플레이어가 NPC에서 멀어질 때 대화 종료
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            EndConversation();
         }
     }
 }
