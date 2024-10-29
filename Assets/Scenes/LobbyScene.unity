@@ -2595,7 +2595,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1093730351}
         m_TargetAssemblyTypeName: CharacterSystem, Assembly-CSharp
         m_MethodName: OnButtonClickCharacter
         m_Mode: 3
@@ -4144,7 +4144,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1093730351}
         m_TargetAssemblyTypeName: CharacterSystem, Assembly-CSharp
         m_MethodName: OnButtonClickCharacter
         m_Mode: 3
@@ -6404,31 +6404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23dd3280ac3c78849b7a763a9c3ef10e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 5
-  rotationSpeed: 10
-  firstPersonCamera: {fileID: 0}
-  thirdPersonCamera: {fileID: 1627657462}
-  cameraDistance: 5
-  minDistance: 1
-  maxDistance: 10
-  CurrentX: 0
-  CurrentY: 45
-  mouseSenesitivity: 200
-  radius: 5
-  minRadius: 1
-  maxRadius: 10
-  yMinLimit: 30
-  yMaxLimit: 90
-  theta: 0
-  phi: 0
-  targetVerticalRoataion: 0
-  verticalRotationSpeed: 240
-  isFirstPerson: 1
-  rb: {fileID: 0}
-  fallingThreshold: -0.1
-  groundCheckDistance: 0.3
-  slopedLimit: 45
 --- !u!1 &1126158670
 GameObject:
   m_ObjectHideFlags: 0
@@ -9810,7 +9785,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1093730351}
         m_TargetAssemblyTypeName: CharacterSystem, Assembly-CSharp
         m_MethodName: OnButtonClickCharacter
         m_Mode: 3
@@ -10946,7 +10921,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1093730351}
         m_TargetAssemblyTypeName: CharacterSystem, Assembly-CSharp
         m_MethodName: OnButtonClickCharacter
         m_Mode: 3

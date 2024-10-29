@@ -45,10 +45,4 @@
 
 //        // 줌 처리
 //        cameraDistance = Mathf.Clamp(cameraDistance - Input.GetAxis("Mouse ScrollWheel") * 5, minDistance, maxDistance);
-//    }
-
-//    void SetupCamera()
-//    {
-//        thirdPersonCamera.transform.position = transform.position + new Vector3(0, 1.5f, -cameraDistance);  // 초기 위치 설정
-//    }
-//}
+//  
