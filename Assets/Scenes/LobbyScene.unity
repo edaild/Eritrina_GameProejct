@@ -3366,12 +3366,12 @@ GameObject:
   - component: {fileID: 642999853}
   - component: {fileID: 642999852}
   m_Layer: 5
-  m_Name: FadeImage
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &642999851
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5801,12 +5801,12 @@ RectTransform:
   - {fileID: 1905495604}
   - {fileID: 460743799}
   - {fileID: 839944841}
-  - {fileID: 642999851}
   - {fileID: 797756685}
   - {fileID: 1781030052}
   - {fileID: 2019324811}
   - {fileID: 1283159428}
   - {fileID: 2048467837}
+  - {fileID: 642999851}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
