@@ -160,7 +160,6 @@ Transform:
   - {fileID: 1147763171}
   - {fileID: 360056958}
   - {fileID: 1873580677}
-  - {fileID: 1627657458}
   - {fileID: 988252343}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -697,7 +696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d3b542cc85df54ba5362384a05d2e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NpcCharacter: []
   functionUI: {fileID: 1781030051}
   functiontext: {fileID: 357798081}
   textUI: {fileID: 1761744982}
@@ -5629,7 +5627,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c8707a858be534b87be3e60183c1c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NpcCharacter: []
   functionUI: {fileID: 1781030051}
   functiontext: {fileID: 357798081}
   textUI: {fileID: 1761744982}
@@ -6168,6 +6165,7 @@ GameObject:
   - component: {fileID: 1093730350}
   - component: {fileID: 1093730349}
   - component: {fileID: 1093730348}
+  - component: {fileID: 1093730359}
   m_Layer: 0
   m_Name: CharacterSystem
   m_TagString: Player
@@ -6394,6 +6392,43 @@ Transform:
   - {fileID: 705868296}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1093730359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093730347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23dd3280ac3c78849b7a763a9c3ef10e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpForce: 5
+  rotationSpeed: 10
+  firstPersonCamera: {fileID: 0}
+  thirdPersonCamera: {fileID: 1627657462}
+  cameraDistance: 5
+  minDistance: 1
+  maxDistance: 10
+  CurrentX: 0
+  CurrentY: 45
+  mouseSenesitivity: 200
+  radius: 5
+  minRadius: 1
+  maxRadius: 10
+  yMinLimit: 30
+  yMaxLimit: 90
+  theta: 0
+  phi: 0
+  targetVerticalRoataion: 0
+  verticalRotationSpeed: 240
+  isFirstPerson: 1
+  rb: {fileID: 0}
+  fallingThreshold: -0.1
+  groundCheckDistance: 0.3
+  slopedLimit: 45
 --- !u!1 &1126158670
 GameObject:
   m_ObjectHideFlags: 0
@@ -9021,11 +9056,11 @@ Transform:
   m_GameObject: {fileID: 1627657457}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -574.7628, y: -59.82251, z: -475.36655}
+  m_LocalPosition: {x: -0.02001953, y: 2, z: -1.7862853}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 393838}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1627657459
 MonoBehaviour:
@@ -9039,18 +9074,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7a6214610ced84781dd568d3518448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thirdPersonCamera: {fileID: 1627657462}
   target: {fileID: 1093730357}
-  offset: {x: 0, y: 0, z: 0}
-  zoomSpeed: 2
-  distance: 2
+  cameraDistance: 5
   minDistance: 2
   maxDistance: 5
-  rotateSpeed: 20
-  limitAngle: 70
-  dragLimit: 5
-  rotationSmoothTime: 0.1
-  npccharacterController: {fileID: 0}
-  MaineQuest01: {fileID: 0}
+  mouseSensitivity: 200
 --- !u!114 &1627657460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12122,8 +12151,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 900861504}
+  - {fileID: 1627657458}
   - {fileID: 1047086221}
-  - {fileID: 1093730357}
   - {fileID: 1053236339}
   - {fileID: 393838}
   - {fileID: 51614708}
+  - {fileID: 1093730357}

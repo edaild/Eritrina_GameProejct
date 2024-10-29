@@ -51299,18 +51299,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7a6214610ced84781dd568d3518448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thirdPersonCamera: {fileID: 923725609}
   target: {fileID: 1869827283}
-  offset: {x: 0, y: 0, z: 0}
-  zoomSpeed: 2
-  distance: 2
+  cameraDistance: 5
   minDistance: 2
   maxDistance: 5
-  rotateSpeed: 20
-  limitAngle: 70
-  dragLimit: 5
-  rotationSmoothTime: 0.1
-  npccharacterController: {fileID: 0}
-  MaineQuest01: {fileID: 0}
+  mouseSensitivity: 200
 --- !u!114 &923725607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75383,21 +75377,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d3b542cc85df54ba5362384a05d2e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NpcCharacter: []
   functionUI: {fileID: 941780366}
   functiontext: {fileID: 614360376}
-  NpcSpeed: 0
   textUI: {fileID: 117810363}
   npcName: {fileID: 9944456}
   textObject: {fileID: 1021187667}
   PlayerHpbar: {fileID: 1266373143}
   menuButton: {fileID: 2051385459}
   NpcCheck: 0
-  NpcTextcheck: 0
   text_Count: 0
   questManager: {fileID: 1409483741}
   gameManger: {fileID: 1409483743}
-  NPC: 0
 --- !u!222 &1336589592
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -79648,21 +79638,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c8707a858be534b87be3e60183c1c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NpcCharacter: []
   functionUI: {fileID: 941780366}
   functiontext: {fileID: 614360376}
-  NpcSpeed: 0
   textUI: {fileID: 117810363}
   npcName: {fileID: 9944456}
   textObject: {fileID: 1021187667}
   PlayerHpbar: {fileID: 1266373143}
   menuButton: {fileID: 2051385459}
   NpcCheck: 0
-  NpcTextcheck: 0
   text_Count: 0
   questManager: {fileID: 1409483741}
   gameManger: {fileID: 0}
-  NPC: 0
 --- !u!114 &1409483743
 MonoBehaviour:
   m_ObjectHideFlags: 0
