@@ -32047,7 +32047,7 @@ PrefabInstance:
     - target: {fileID: 8221264337971659442, guid: 005a1b86f0a822641b0e5761273a89dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -77687,7 +77687,7 @@ PrefabInstance:
     - target: {fileID: 8221264337971659442, guid: 005a1b86f0a822641b0e5761273a89dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -102962,7 +102962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1877734168
 RectTransform:
   m_ObjectHideFlags: 0
@@ -116023,10 +116023,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenu: {fileID: 1062940056}
   map: {fileID: 0}
+  Quest: {fileID: 0}
   characterButton01: {fileID: 1910107990}
   characterButton02: {fileID: 1492210653}
   characterButton03: {fileID: 808862348}
   characterButton04: {fileID: 934766200}
+  functionUI: {fileID: 0}
+  MainQuest01: {fileID: 0}
   Mainmenu_On: 0
   Mapmenu_On: 0
 --- !u!114 &2114539741
@@ -117121,7 +117124,7 @@ PrefabInstance:
     - target: {fileID: 8221264337971659442, guid: 005a1b86f0a822641b0e5761273a89dc,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
