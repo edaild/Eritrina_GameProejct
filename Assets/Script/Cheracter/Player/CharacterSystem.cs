@@ -43,6 +43,10 @@ public class CharacterSystem : MonoBehaviour
         {
             HandleMovement();
         }
+        else
+        {
+            StopMovement(); // TextUI가 활성화된 경우에는 이동 정지
+        }
     }
 
     private void HandleMovement()
@@ -50,50 +54,50 @@ public class CharacterSystem : MonoBehaviour
         float xInput = Input.GetAxis("Horizontal");
         float zInput = Input.GetAxis("Vertical");
 
-        // 카메라의 방향을 가져와서 이동 방향을 계산
         Vector3 cameraForward = Camera.main.transform.forward;
         Vector3 cameraRight = Camera.main.transform.right;
 
-        // Y축 방향은 무시하고 평면에서의 이동 방향을 계산
         cameraForward.y = 0;
         cameraRight.y = 0;
 
-        // 정규화
         cameraForward.Normalize();
         cameraRight.Normalize();
 
-        // 입력에 따른 이동 벡터 계산
         Vector3 movement = (cameraRight * xInput + cameraForward * zInput).normalized;
 
-        // 현재 속도 결정
         float currentSpeed = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) ? runSpeed : playerSpeed;
 
-        // Rigidbody의 속도 설정
         playerRigidbody.velocity = new Vector3(movement.x * currentSpeed, playerRigidbody.velocity.y, movement.z * currentSpeed);
 
-        // 활성화된 캐릭터의 애니메이터 가져오기
         Animator currentAnimator = GetCurrentAnimator();
 
         if (currentAnimator != null)
         {
-            // 애니메이션 상태 업데이트
             bool isMoving = movement != Vector3.zero;
             currentAnimator.SetBool("IsWalk", isMoving && !Input.GetKey(KeyCode.LeftShift));
             currentAnimator.SetBool("IsRun", isMoving && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)));
         }
 
-        // 플레이어가 이동할 경우 시선 방향 조정
         if (movement != Vector3.zero)
         {
-            // 회전 방향을 설정하여 플레이어가 이동 방향을 바라보도록 함
             Quaternion targetRotation = Quaternion.LookRotation(movement);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
     }
 
+    private void StopMovement()
+    {
+        playerRigidbody.velocity = Vector3.zero; // 움직임을 정지
+        Animator currentAnimator = GetCurrentAnimator();
+        if (currentAnimator != null)
+        {
+            currentAnimator.SetBool("IsWalk", false);
+            currentAnimator.SetBool("IsRun", false);
+        }
+    }
+
     private void InitializeAnimators()
     {
-        // 애니메이터 배열 초기화
         animators = new Animator[playerCharacter.Length];
         for (int i = 0; i < playerCharacter.Length; i++)
         {
