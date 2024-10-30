@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainQuestNpc01 : MaineQuest01
+public class MainQuestNpc01 : MainQuest01
 {
 
     private void OnTriggerEnter(Collider other)

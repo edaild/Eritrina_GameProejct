@@ -8,8 +8,9 @@ TagManager:
   - Enemy
   - Lobby In
   - Lobby Out
-  - NPC01
   - NPC02
+  - smile lady
+  - reception
   layers:
   - Default
   - TransparentFX

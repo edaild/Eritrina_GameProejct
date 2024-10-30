@@ -39957,7 +39957,7 @@ Transform:
   m_GameObject: {fileID: 744506666}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 4.8133345, y: 0.3600057, z: 2.449992}
+  m_LocalPosition: {x: 4.8133345, y: 0.3600057, z: -1.67}
   m_LocalScale: {x: 10, y: 0.33333334, z: 0.33333334}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75360,7 +75360,7 @@ GameObject:
   - component: {fileID: 1336589591}
   m_Layer: 0
   m_Name: NPC
-  m_TagString: NPC01
+  m_TagString: smile lady
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102962,7 +102962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1877734168
 RectTransform:
   m_ObjectHideFlags: 0
@@ -110613,7 +110613,7 @@ Transform:
   m_GameObject: {fileID: 2023336542}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -14.429993, y: 0.3600057, z: 2.449992}
+  m_LocalPosition: {x: -14.429993, y: 0.3600057, z: -1.67}
   m_LocalScale: {x: 10, y: 0.33333334, z: 0.33333334}
   m_ConstrainProportionsScale: 0
   m_Children: []

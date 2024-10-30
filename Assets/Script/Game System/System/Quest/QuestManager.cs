@@ -6,6 +6,8 @@ public class QuestManager : MonoBehaviour
 {
     private Quest currentQuest;
     public Text questText; // 현재 퀘스트 단계 텍스트
+
+   
    // public Text questTitleText; // 퀘스트 제목을 위한 텍스트
 
     void Start()
@@ -18,9 +20,10 @@ public class QuestManager : MonoBehaviour
     {
         var steps = new List<string>
         {
-            "앞의 있는 수상한 소녀와 대화하기",
+            "앞의 있는 들떠있는 소녀와 대화하기",
             "호텔에 들어가 데스크에 가서 체크인 하기",
-            "다음 단계 진행",
+            "객실로 이동하기",
+
         };
 
         currentQuest = new Quest("메인 임무 1막", steps);
