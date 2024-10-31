@@ -32147,6 +32147,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 585666234}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &585666242 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7305939671922454539, guid: 005a1b86f0a822641b0e5761273a89dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 585666234}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &586005013
 GameObject:
   m_ObjectHideFlags: 0
@@ -51619,11 +51625,11 @@ Transform:
   m_GameObject: {fileID: 923725605}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 454.64996, y: -665.94995, z: 437.41373}
+  m_LocalPosition: {x: 595.64996, y: 46.850037, z: 437.41373}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1409483744}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &926316929
 GameObject:
@@ -58380,6 +58386,12 @@ GameObject:
 --- !u!4 &1028924991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6403160525146836896, guid: 005a1b86f0a822641b0e5761273a89dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1028924988}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1028924996 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7305939671922454539, guid: 005a1b86f0a822641b0e5761273a89dc,
     type: 3}
   m_PrefabInstance: {fileID: 1028924988}
   m_PrefabAsset: {fileID: 0}
@@ -75575,6 +75587,7 @@ GameObject:
   - component: {fileID: 1336589594}
   - component: {fileID: 1336589593}
   - component: {fileID: 1336589592}
+  - component: {fileID: 1336589600}
   m_Layer: 0
   m_Name: NPC
   m_TagString: smile lady
@@ -75752,6 +75765,29 @@ RectTransform:
   m_AnchoredPosition: {x: 595.71, y: 46.01599}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1336589600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336589590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d3b542cc85df54ba5362384a05d2e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  functionUI: {fileID: 941780366}
+  functiontext: {fileID: 614360376}
+  textUI: {fileID: 117810363}
+  npcName: {fileID: 9944456}
+  textObject: {fileID: 1021187667}
+  PlayerHpbar: {fileID: 1266373143}
+  menuButton: {fileID: 2051385459}
+  NpcCheck: 0
+  text_Count: 0
+  questManager: {fileID: 0}
+  gameManger: {fileID: 0}
 --- !u!1 &1338064072
 GameObject:
   m_ObjectHideFlags: 0
@@ -77900,6 +77936,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1378934944}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1378934952 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7305939671922454539, guid: 005a1b86f0a822641b0e5761273a89dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1378934944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1381637909
 GameObject:
   m_ObjectHideFlags: 0
@@ -79793,6 +79835,7 @@ GameObject:
   - component: {fileID: 1409483744}
   - component: {fileID: 1409483741}
   - component: {fileID: 1409483743}
+  - component: {fileID: 1409483745}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -79838,12 +79881,32 @@ Transform:
   m_LocalPosition: {x: 141, y: 712.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2114539739}
-  - {fileID: 923725610}
-  - {fileID: 1869827283}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1409483745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409483740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d3b542cc85df54ba5362384a05d2e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  functionUI: {fileID: 941780366}
+  functiontext: {fileID: 614360376}
+  textUI: {fileID: 117810363}
+  npcName: {fileID: 9944456}
+  textObject: {fileID: 9944456}
+  PlayerHpbar: {fileID: 1266373143}
+  menuButton: {fileID: 2051385459}
+  NpcCheck: 0
+  text_Count: 0
+  questManager: {fileID: 0}
+  gameManger: {fileID: 0}
 --- !u!1 &1414507397
 GameObject:
   m_ObjectHideFlags: 0
@@ -102306,8 +102369,6 @@ GameObject:
   - component: {fileID: 1869827277}
   - component: {fileID: 1869827276}
   - component: {fileID: 1869827275}
-  - component: {fileID: 1869827274}
-  - component: {fileID: 1869827284}
   m_Layer: 0
   m_Name: PlayerCharacterSystem
   m_TagString: Player
@@ -102315,27 +102376,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &1869827274
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869827273}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1869827275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102395,10 +102435,10 @@ MonoBehaviour:
   - {fileID: 808862350}
   - {fileID: 934766202}
   animators:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1028924996}
+  - {fileID: 1378934952}
+  - {fileID: 585666242}
+  - {fileID: 2139972509}
   TextUI: {fileID: 117810363}
   mainQuest01: {fileID: 0}
 --- !u!114 &1869827278
@@ -102524,7 +102564,7 @@ Transform:
   m_GameObject: {fileID: 1869827273}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 454.66998, y: -666.66, z: 439.2}
+  m_LocalPosition: {x: 595.67, y: 46.140015, z: 439.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -102532,31 +102572,8 @@ Transform:
   - {fileID: 1378934947}
   - {fileID: 585666237}
   - {fileID: 2139972504}
-  m_Father: {fileID: 1409483744}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1869827284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869827273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea58e89360c9a3e40894ef012f6f8ef6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  functionUI: {fileID: 941780366}
-  functiontext: {fileID: 614360376}
-  textUI: {fileID: 117810363}
-  npcName: {fileID: 9944456}
-  textObject: {fileID: 1021187667}
-  PlayerHpbar: {fileID: 1266373143}
-  menuButton: {fileID: 2051385459}
-  NpcCheck: 0
-  text_Count: 0
-  questManager: {fileID: 1409483741}
-  gameManger: {fileID: 1409483743}
 --- !u!1 &1870961770
 GameObject:
   m_ObjectHideFlags: 0
@@ -103153,7 +103170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1877734168
 RectTransform:
   m_ObjectHideFlags: 0
@@ -116215,7 +116232,7 @@ RectTransform:
   - {fileID: 2051385460}
   - {fileID: 433765647}
   - {fileID: 1877734168}
-  m_Father: {fileID: 1409483744}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -117356,6 +117373,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2139972501}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &2139972509 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7305939671922454539, guid: 005a1b86f0a822641b0e5761273a89dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2139972501}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2140223155
 GameObject:
   m_ObjectHideFlags: 0
@@ -117763,7 +117786,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 921691761}
-  - {fileID: 1409483744}
   - {fileID: 1950653925}
   - {fileID: 701590473}
   - {fileID: 1336589599}
+  - {fileID: 1409483744}
+  - {fileID: 2114539739}
+  - {fileID: 923725610}
+  - {fileID: 1869827283}
