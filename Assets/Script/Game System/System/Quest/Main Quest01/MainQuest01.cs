@@ -5,28 +5,34 @@ using UnityEngine.UI;
 
 public class MainQuest01 : MonoBehaviour
 {
-    [Header("NPC system")]
+    [Header("Function UI")]
     public GameObject functionUI; // F 키 안내 UI
     public Text functiontext; // F 키 안내 텍스트
-    public GameObject textUI; // 대화 UI
+
+    [Header("TextUI")]
+    public GameObject textUI; // textUI
     public Text npcName; // NPC 이름을 표시할 UI 텍스트
     public Text textObject; // 대화 내용을 표시할 UI 텍스트
-    public GameObject PlayerHpbar; // HP 바
+
+    [Header("Health Bar")]
+    public GameObject PlayerHpbar;
+
+    [Header("MenuButton")]
     public GameObject menuButton; // 메뉴 버튼
 
-    public bool NpcCheck; // NPC와의 대화 가능 여부
+    [Header("Bool")]
+    public bool NpcCheck;   // NPC 체크
+
+    [Header("매니저 참조")]
     public int text_Count = 0; // 대화 카운트
     public QuestManager questManager; // 퀘스트 매니저 참조
     public GameManger gameManger; // 게임 매니저 참조
 
-
     private void Start()
     {
-        NpcCheck = false;
-        textUI.SetActive(false);
+        NpcCheck = false;   
         questManager = FindObjectOfType<QuestManager>();
-        gameManger = FindObjectOfType<GameManger>();
-
+        gameManger = FindObjectOfType<GameManger>();       
     }
 
     private void Update()
@@ -54,9 +60,9 @@ public class MainQuest01 : MonoBehaviour
 
     private void NpcCharacterCheck()
     {
-        if (!NpcCheck) return;
+        //if (!NpcCheck) return;
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && NpcCheck)
         {
             if (transform.CompareTag("smile lady"))
             {
@@ -197,23 +203,6 @@ public class MainQuest01 : MonoBehaviour
             EndConversation(); // 대화가 아닌 경우 대화 종료
         }
     }
-
-    // 플레이어가 NPC와 가까워질 때 대화 가능 상태로 변경
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            NpcCheck = true;
-            functionUI.SetActive(true);
-        }
-    }
-
-    // 플레이어가 NPC에서 멀어질 때 대화 종료
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            EndConversation();
-        }
-    }
 }
+
+
