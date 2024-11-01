@@ -60,7 +60,7 @@ public class MainQuest01 : MonoBehaviour
 
     private void NpcCharacterCheck()
     {
-        //if (!NpcCheck) return;
+        if (!NpcCheck) return;
 
         if (Input.GetKeyDown(KeyCode.F) && NpcCheck)
         {
