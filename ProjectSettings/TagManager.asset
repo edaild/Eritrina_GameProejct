@@ -11,6 +11,7 @@ TagManager:
   - NPC02
   - smile lady
   - reception
+  - Bartender
   layers:
   - Default
   - TransparentFX

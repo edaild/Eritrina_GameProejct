@@ -77,6 +77,14 @@ public class MainQuest01 : MonoBehaviour
                 npcName.text = "리셉션";
                 textObject.text = "안녕하세요~! '에리트리나'호텔에 오신걸 환영합니다!";
                 text_Count = 1;
+
+            }
+            else if (transform.CompareTag("Bartender"))
+            {
+                StartConversation();
+                npcName.text = "바텐더";
+                textObject.text = "오! 안녕하세요 신사분. '에리트리나'에 오신걸 환영합니다. 저희 주인님께서 초대하신 손님이신가 보군요?";
+                text_Count = 1;
             }
         }
 
@@ -89,6 +97,10 @@ public class MainQuest01 : MonoBehaviour
             else if (transform.CompareTag("reception"))
             {
                 HandleNpcDialogue(1); // reception 대화 처리
+            }
+            else if (transform.CompareTag("Bartender"))
+            {
+                HandleNpcDialogue(1); // Bartender 대화 처리
             }
         }
     }
@@ -192,6 +204,27 @@ public class MainQuest01 : MonoBehaviour
                     EndConversation();
                     questManager.CompleteCurrentStep();
                     gameManger.mainQuestCount = 2;
+                    break;
+                default:
+                    EndConversation();
+                    break;
+            }
+        }
+
+        else if (npcIndex == 2 && gameManger.mainQuestCount == 2) // Bartender 대화
+        {
+            switch (text_Count)
+            {
+                case 1:
+                    npcName.text = "벨즈 ";
+                    textObject.text = "네 안녕하세요. 저에게 어울리는 술 한잔 주실래요?";
+                    text_Count++;
+                    break;
+               
+                case 2:
+                    EndConversation();
+                    questManager.CompleteCurrentStep();
+                    gameManger.mainQuestCount = 3;
                     break;
                 default:
                     EndConversation();
