@@ -2,22 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManger : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static GameManger Instance;
-
     public int mainQuestCount = 0; // 퀘스트 상태
+    public int playerExperience = 0; // 플레이어 경험치
+    public int playerLevel = 1; // 플레이어 레벨
 
-    private void Awake()
+    public void AddExperience(int amount)
     {
-        if (Instance == null)
+        playerExperience += amount;
+        if (playerExperience >= 100) // 100 경험치마다 레벨업
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // 씬 전환 시 유지
+            LevelUp();
         }
-        else
-        {
-            Destroy(gameObject); // 중복 방지
-        }
+    }
+
+    private void LevelUp()
+    {
+        playerLevel++;
+        playerExperience = 0; // 경험치 초기화
+        Debug.Log($"레벨업! 현재 레벨: {playerLevel}");
     }
 }

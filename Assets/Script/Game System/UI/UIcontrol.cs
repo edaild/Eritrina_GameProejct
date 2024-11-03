@@ -16,7 +16,7 @@ public class uIcontrol : MonoBehaviour
     [Tooltip("캐릭터 UI")]public GameObject characterButton04; // 캐릭터 UI 04
 
     public GameObject functionUI; // F 키 안내 UI
-    public MainQuest01 MainQuest01;
+  //  public MainQuest01 MainQuest01;
 
 
     public bool Mainmenu_On; // 메인메뉴 확인
@@ -25,7 +25,7 @@ public class uIcontrol : MonoBehaviour
 
     public void Start()
     {
-        MainQuest01 = FindObjectOfType<MainQuest01>();
+       // MainQuest01 = FindObjectOfType<MainQuest01>();
     }
 
     // Main Menu

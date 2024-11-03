@@ -17,7 +17,7 @@ public class CharacterSystem : MonoBehaviour
 
     private Rigidbody playerRigidbody; // Rigidbody
 
-    public MainQuest01 mainQuest01;
+    //public MainQuest01 mainQuest01;
 
     // 활성화된 버튼 색상 (16진수 색상 코드 #3E3593)
     private Color activeColor = new Color32(62, 53, 147, 178); // RGB(62, 53, 147) 및 Alpha(255)
@@ -26,7 +26,7 @@ public class CharacterSystem : MonoBehaviour
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
-        mainQuest01 = GetComponent<MainQuest01>();
+      //  mainQuest01 = GetComponent<MainQuest01>();
         InitializeAnimators();
         CharacterReset();
     }
