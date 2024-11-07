@@ -449,14 +449,8 @@ MonoBehaviour:
   menuButton: {fileID: 948017235}
   NpcCheck: 0
   text_Count: 0
-  questManager01: {fileID: 0}
-  gameManager: {fileID: 0}
-  PlayerCharacterButtonlist:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  dialogueClips: []
+  questManager: {fileID: 0}
+  gameManger: {fileID: 0}
 --- !u!1 &90866040
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +558,7 @@ MonoBehaviour:
   - {fileID: 168208245}
   - {fileID: 1702057597}
   TextUI: {fileID: 637673121}
+  mainQuest01: {fileID: 0}
 --- !u!114 &90866045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2014,9 +2009,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 492411757}
+  - component: {fileID: 492411756}
   - component: {fileID: 492411755}
   - component: {fileID: 492411754}
-  - component: {fileID: 492411758}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2045,14 +2040,8 @@ MonoBehaviour:
   menuButton: {fileID: 948017235}
   NpcCheck: 0
   text_Count: 0
-  questManager01: {fileID: 0}
-  gameManager: {fileID: 0}
-  PlayerCharacterButtonlist:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  dialogueClips: []
+  questManager: {fileID: 0}
+  gameManger: {fileID: 0}
 --- !u!114 &492411755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2066,6 +2055,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainQuestCount: 0
+--- !u!114 &492411756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492411753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7309908f1a67aaa40924bac63ff86998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questText: {fileID: 20141032}
 --- !u!4 &492411757
 Transform:
   m_ObjectHideFlags: 0
@@ -2081,20 +2083,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &492411758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 492411753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37cd78941b7f245408febdde73b65bf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questText: {fileID: 0}
-  gameManager: {fileID: 492411755}
 --- !u!1 &541534343
 GameObject:
   m_ObjectHideFlags: 0
@@ -3178,14 +3166,8 @@ MonoBehaviour:
   menuButton: {fileID: 948017235}
   NpcCheck: 0
   text_Count: 0
-  questManager01: {fileID: 0}
-  gameManager: {fileID: 0}
-  PlayerCharacterButtonlist:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  dialogueClips: []
+  questManager: {fileID: 0}
+  gameManger: {fileID: 0}
 --- !u!222 &857529789
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7872,6 +7854,7 @@ MonoBehaviour:
   characterButton03: {fileID: 2040897008}
   characterButton04: {fileID: 1746892816}
   functionUI: {fileID: 1974193243}
+  MainQuest01: {fileID: 0}
   Mainmenu_On: 0
   Mapmenu_On: 0
 --- !u!114 &1737184747

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class enemyController : MonoBehaviour
 {
@@ -11,23 +12,34 @@ public class enemyController : MonoBehaviour
     public float enemySpeed = 3f; // 몬스터 이동 속도
     public Transform player; //타겟 플레이어
     public float stoppingDistance = 2f; // 플레이어와 최소 거리
+    public GameObject Enemy_attack_range; // 공격 범위
 
-    private bool playercheck;
+    private bool attackcheck; // 공격 처리
+    private bool playercheck; // 공격 범위
 
     private void Update()
     {
         // 플레이어와의 거리 계산
         float distance = Vector3.Distance(transform.position, player.position);
 
+
+
         if (playercheck)
         {
             if (distance > stoppingDistance)
             {
+                // 플레이어를 바라보게 한다.
+                Vector3 vector = player.transform.position - transform.position;
+                transform.rotation = Quaternion.LookRotation(vector).normalized;
+                transform.LookAt(player);
+
                 // 플레이어 방향으로 이동
                 Vector3 direction = (player.position - transform.position).normalized;
                 transform.position += direction * enemySpeed * Time.deltaTime;
             }
+
         }
+
     }
 
 
@@ -35,14 +47,22 @@ public class enemyController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("플레이어가 check 되었습니다.");
             playercheck = true;
+            Debug.Log("플레이어가 check 되었습니다.");
+         
         }
     }
 
+   
+
     private void OnTriggerExit(Collider other)
     {
-        playercheck = false;
+        if (other.CompareTag("Player"))
+        {
+            playercheck = false;
+            Debug.Log("플레이어가 범위 내를 나갔습니다..");
+
+        }
     }
 }
 

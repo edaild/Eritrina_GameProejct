@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainQuestNpc01 : PrologScript
+public class MainQuestNpc01 : MainQuest01
 {
 
     private void OnTriggerEnter(Collider other)
@@ -12,8 +12,8 @@ public class MainQuestNpc01 : PrologScript
         {
             Debug.Log("대화를 하려면 F 키를 누르세요");
             functionUI.SetActive(true);                             // F 키 안내 UI 활성화
-            functionText.text = "대화   F";                         // 안내 텍스트 설정
-            npcCheck = true;                                        // NPC와의 대화 가능으로 설정           
+            functiontext.text = "대화   F";                         // 안내 텍스트 설정
+            NpcCheck = true;                                        // NPC와의 대화 가능으로 설정           
         }
     }
 
@@ -22,11 +22,11 @@ public class MainQuestNpc01 : PrologScript
         // Player가 NPC의 범위를 벗어날 때
         if (other.CompareTag("Player"))
         {
-           npcCheck = false;                                   // 대화 불가능으로 설정
+            NpcCheck = false;                                   // 대화 불가능으로 설정
             textUI.SetActive(false);                            // 대화 UI 비활성화
-            playerHpBar.SetActive(true);                         // Player HP 바 활성화
+            PlayerHpbar.SetActive(true);                         // Player HP 바 활성화
             functionUI.SetActive(false);                        // F 키 안내 UI 비활성화
-            textCount = 0;                                     // 대화 카운트 초기화
+            text_Count = 0;                                     // 대화 카운트 초기화
         }
     }
 }
