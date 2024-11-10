@@ -4,7 +4,9 @@ using UnityEngine.UI;
 
 public class QuestManager : MonoBehaviour
 {
-    private Quest currentQuest;
+    public Quest currentQuest;
+
+    public GameObject questUI;
     public Text questText; // 현재 퀘스트 단계 텍스트
 
    

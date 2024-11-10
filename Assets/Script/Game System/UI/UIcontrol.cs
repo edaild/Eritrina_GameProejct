@@ -9,14 +9,15 @@ public class uIcontrol : MonoBehaviour
     [Header("UI 시스탬")]
     [Tooltip("테블릿 메뉴")]public GameObject MainMenu; // 메인메뉴
     [Tooltip("지도")]public GameObject map; // 지도 
-    [Tooltip("퀘스트")] public GameObject Quest; // 퀘스트
     [Tooltip("캐릭터 UI")]public GameObject characterButton01; // 캐릭터 UI 01
     [Tooltip("캐릭터 UI")]public GameObject characterButton02; // 캐릭터 UI 02
     [Tooltip("캐릭터 UI")]public GameObject characterButton03; // 캐릭터 UI 03
     [Tooltip("캐릭터 UI")]public GameObject characterButton04; // 캐릭터 UI 04
 
+    
     public GameObject functionUI; // F 키 안내 UI
     public MainQuest01 MainQuest01;
+    public QuestManager questManager;
 
 
     public bool Mainmenu_On; // 메인메뉴 확인
@@ -26,6 +27,7 @@ public class uIcontrol : MonoBehaviour
     public void Start()
     {
         MainQuest01 = FindObjectOfType<MainQuest01>();
+        questManager = FindObjectOfType<QuestManager>();
     }
 
     // Main Menu
@@ -35,14 +37,14 @@ public class uIcontrol : MonoBehaviour
         {
             MainMenu.gameObject.SetActive(true); 
             Mainmenu_On = true;
-            Quest.gameObject. SetActive(false);
+            questManager.questUI.gameObject.SetActive(false);
             functionUI.gameObject.SetActive(false);
         }
         else
         {
             MainMenu.gameObject.SetActive(false); 
             Mainmenu_On = false;
-            Quest.gameObject.SetActive(true);
+            questManager.questUI.gameObject.SetActive(true);
             functionUI.gameObject.SetActive(true);
 
         }      
