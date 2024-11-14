@@ -14,6 +14,9 @@ TagManager:
   - Bartender
   - NPCtts
   - meruhan
+  - PlayerAttack
+  - bullet
+  - Elevator
   layers:
   - Default
   - TransparentFX

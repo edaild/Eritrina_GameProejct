@@ -2079,13 +2079,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenu: {fileID: 2128805786}
   map: {fileID: 0}
-  Quest: {fileID: 1798084390}
   characterButton01: {fileID: 1036870357}
   characterButton02: {fileID: 1401862205}
   characterButton03: {fileID: 793133210}
   characterButton04: {fileID: 542926352}
   functionUI: {fileID: 2084724196}
   MainQuest01: {fileID: 0}
+  questManager: {fileID: 0}
   Mainmenu_On: 0
   Mapmenu_On: 0
 --- !u!114 &520435719
@@ -4897,11 +4897,6 @@ MonoBehaviour:
   healthBar: {fileID: 1707360134}
   MaxHp: 1000
   curHp: 1000
-  playerCharacterList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   DieImage: {fileID: 1137138427}
   Player: {fileID: 1038307908}
   curHpText: {fileID: 1769353799}

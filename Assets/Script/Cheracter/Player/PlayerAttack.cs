@@ -13,6 +13,8 @@ public class PlayerAttack : MonoBehaviour
     public bool attackCheckQ;      // ±Ã±Ø±â °ø°Ý
     public bool attackCheckN;     // ÀÏ¹Ý °ø°Ý
 
+    
+
     private void Start()
     {
         attack_range.gameObject.SetActive(false);

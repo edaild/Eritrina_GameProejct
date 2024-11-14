@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Playerhealthbarsystem : HealthBar
 {
     [Header("playerCharacterList")]
-    public GameObject[] playerCharacterList = new GameObject[4]; // 플레이어 배열
+
 
     public GameObject DieImage;    // 게임 오버 이미지
     public GameObject Player; // 플레이어
