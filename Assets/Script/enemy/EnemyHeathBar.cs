@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,20 +28,20 @@ public class EnemyHeathBar : HealthBar
     {
         if (playerAttackCheck)
         {
-            curHp -= playerAttack.attackN * Time.deltaTime; // Ã¼·ÂÀ» °¨¼Ò½ÃÅ°´Â ·ÎÁ÷
+            curHp -= playerAttack.attackN * Time.deltaTime; 
         }
-       
-       
+
+
     }
 
     private void Die()
     {
         if (curHp <= 0)
         {
-            curHp = 0; // Ã¼·ÂÀ» 0À¸·Î ¼³Á¤
+            curHp = 0; 
 
             Enemy.gameObject.SetActive(false);
-            Debug.Log("Àû »ç¸Á");
+            Debug.Log("ï¿½ï¿½ ï¿½ï¿½ï¿½");
         }
     }
 
@@ -50,7 +50,7 @@ public class EnemyHeathBar : HealthBar
     {
         if (other.CompareTag("PlayerAttack"))
         {
-            // ÀûÀÇ Hp¸¦ °¨¼ÒÇÑ´Ù.
+   
             playerAttackCheck = true;
         }
         else
@@ -58,5 +58,5 @@ public class EnemyHeathBar : HealthBar
             playerAttackCheck = false;
         }
     }
-  
+
 }

@@ -13,7 +13,7 @@ public class HealthBar : MonoBehaviour
     public float curHp = 100;
 
     private void Start()
-    { 
+    {
         healthBar.value = curHp / MaxHp;
     }
 

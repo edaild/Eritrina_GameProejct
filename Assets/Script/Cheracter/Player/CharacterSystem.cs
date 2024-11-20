@@ -35,13 +35,14 @@ public class CharacterSystem : MonoBehaviour
     {
         NotHandleMovementCheck();
         HandleCharacterChangeKeyboard();
+            HandleMovement();
     }
 
     public void NotHandleMovementCheck()
     {
         if (!TextUI.activeSelf || Input.GetKeyDown(KeyCode.LeftAlt)) // TextUI가 비활성화된 경우에만 HandleMovement 호출
         {
-            HandleMovement();
+            
         }
         else
         {
