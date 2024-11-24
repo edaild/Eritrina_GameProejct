@@ -28,7 +28,7 @@ public class EnemyHeathBar : HealthBar
     {
         if (playerAttackCheck)
         {
-            curHp -= playerAttack.attackN * Time.deltaTime; 
+            curHp -= playerAttack.Player_Attack * Time.deltaTime; 
         }
 
 
