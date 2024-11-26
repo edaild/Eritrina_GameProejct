@@ -4,19 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
   - Enemy
-  - Lobby In
-  - Lobby Out
-  - NPC02
-  - smile lady
-  - reception
-  - Bartender
-  - NPCtts
-  - meruhan
-  - PlayerAttack
   - bullet
-  - Elevator
+  - Wall
   layers:
   - Default
   - TransparentFX

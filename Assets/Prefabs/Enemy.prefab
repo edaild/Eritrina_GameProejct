@@ -371,7 +371,6 @@ GameObject:
   - component: {fileID: 4594423256357497041}
   - component: {fileID: 5936601386946149282}
   - component: {fileID: 2355619043150958125}
-  - component: {fileID: 5754942892668830051}
   m_Layer: 0
   m_Name: Hp check
   m_TagString: Untagged
@@ -486,24 +485,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.3
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5754942892668830051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838641602460897538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5202aed54c3318940994d90f84d5a3fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 7454776828308128827}
-  MaxHp: 100
-  curHp: 100
-  Enemy: {fileID: 394562444330576310}
-  playerAttack: {fileID: 0}
-  healthBar: {fileID: 0}
 --- !u!1 &3105881238687889617
 GameObject:
   m_ObjectHideFlags: 0
