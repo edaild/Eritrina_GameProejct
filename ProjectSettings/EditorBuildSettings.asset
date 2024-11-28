@@ -6,20 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/StartScene.unity
+    path: "Assets/Scenes/\uC544\uC774\uC791/StartScene.unity"
     guid: cd693d693b6a8d542abf5fe53f2cf257
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
+    path: "Assets/Scenes/\uC544\uC774\uC791/MainScene01.unity"
+    guid: cc5ade3ce18996c4480107a9acdab457
+  - enabled: 1
+    path: Assets/Scenes/DieMainScene.unity
     guid: 06622ec994e8f924b831856963ba8862
   - enabled: 1
-    path: "Assets/Scenes/\uC544\uC774\uC791/02Scene.unity"
-    guid: a7583978d3795b849a6a06cc878fa2a0
+    path: "Assets/Scenes/\uC544\uC774\uC791/01Scene.unity"
+    guid: 8a020a77b7d3aed4eabee94bd453bab7
   - enabled: 1
     path: "Assets/Scenes/\uC544\uC774\uC791/02Scene.unity"
-    guid: e316ecb74fa1ec043a280788926b4d7b
+    guid: 316e30f223b580c438b590d6e66087e0
   - enabled: 1
     path: "Assets/Scenes/\uC544\uC774\uC791/03Scene.unity"
-    guid: 3a0e032b42017854185cd9ad218f4dd4
+    guid: 360079bc897aade40aa302c47cad11c1
   - enabled: 1
     path: "Assets/Scenes/\uC544\uC774\uC791/04Scene.unity"
     guid: 0e4236c8eeddc0e4c8147230625e6a6d

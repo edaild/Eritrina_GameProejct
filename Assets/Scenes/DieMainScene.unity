@@ -18359,7 +18359,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 812345168}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LogIn, Assembly-CSharp
         m_MethodName: OnButtonClick_GameStart
         m_Mode: 1
@@ -42496,8 +42496,6 @@ GameObject:
   - component: {fileID: 812345164}
   - component: {fileID: 812345163}
   - component: {fileID: 812345167}
-  - component: {fileID: 812345168}
-  - component: {fileID: 812345169}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -42608,37 +42606,6 @@ MonoBehaviour:
   image1: {fileID: 818701055}
   fadeDuration: 1
   displayDuration: 1
---- !u!114 &812345168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 812345162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db369e0a23e30664bbd007cdc35fc8da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  user_Id: {fileID: 708579793}
-  User_password: {fileID: 935298853}
-  test_Id: user1234
-  test_pw: user1234
-  login: {fileID: 1666123344}
-  Iogin_Check: 0
---- !u!114 &812345169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 812345162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fe06030e0363c443bb12d2c0e33dda9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cursurIcon: {fileID: 2800000, guid: d5209f8e764469f4182e737cdb88d450, type: 3}
 --- !u!1 &814414085
 GameObject:
   m_ObjectHideFlags: 0
@@ -43113,7 +43080,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &818701055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91167,7 +91134,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 812345168}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LogIn, Assembly-CSharp
         m_MethodName: OnButtonClick_LoginButton
         m_Mode: 1
