@@ -13,7 +13,7 @@ public class Playerhealthbarsystem : HealthBar
     public GameObject Player; // 플레이어
     public Text curHpText;
 
-    private bool enemyattackcheck;
+    public bool enemyattackcheck;
     private float attackDamage = 5f; // 공격에 의해 감소하는 체력
 
     public HealthBar HealthBar;
@@ -49,22 +49,4 @@ public class Playerhealthbarsystem : HealthBar
             Player.gameObject.SetActive(false);
         }
     }
-
-
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Enemy"))
-    //    {
-    //        enemyattackcheck = true;
-    //    }
-    //}
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.CompareTag("Enemy"))
-    //    {
-    //        enemyattackcheck = false;
-    //    }
-    //}
 }

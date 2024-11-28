@@ -7,6 +7,11 @@ TagManager:
   - Enemy
   - bullet
   - Wall
+  - Potar01
+  - Potar05
+  - Potar04
+  - Potar03
+  - Potar02
   layers:
   - Default
   - TransparentFX
