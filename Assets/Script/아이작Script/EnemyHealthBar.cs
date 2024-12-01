@@ -7,13 +7,13 @@ public class EnemyHealthBar : MonoBehaviour
     public float maxHealth = 50f;     // 최대 체력
     public Slider healthBar;          // 체력 바 UI 슬라이더
 
-    public SceneManagerSystem sceneManager;
+    public PortalSystem portalSystem;
 
     private bool isDead = false;      // 적이 죽었는지 여부를 추적하는 변수
 
     private void Start()
     {
-        sceneManager = FindAnyObjectByType<SceneManagerSystem>();
+        portalSystem = FindAnyObjectByType<PortalSystem>();
     }
 
     // 데미지를 받을 때 호출되는 메소드
@@ -43,6 +43,6 @@ public class EnemyHealthBar : MonoBehaviour
         isDead = true;  // 죽음 상태로 설정
      
         Destroy(gameObject);  // 적 오브젝트 삭제
-        sceneManager.EnemyCount++;  // 한 번만 카운트 증가
+        portalSystem.EnemyCount++;  // 한 번만 카운트 증가
     }
 }

@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDirection; // 이동 방향
     private Vector3 attackDirection; // 공격 방향 (방향키로 설정)
 
+    private bool isRotating = false; // 회전 중인지 확인하는 변수
+
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
@@ -66,7 +68,7 @@ public class PlayerController : MonoBehaviour
         playerRigidbody.MovePosition(transform.position + moveDirection);
 
         // 이동 방향으로 회전
-        if (moveDirection != Vector3.zero)
+        if (moveDirection != Vector3.zero && !isRotating) // 회전 중이 아닐 때만 회전
         {
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
@@ -87,20 +89,20 @@ public class PlayerController : MonoBehaviour
             Input.GetKeyDown(KeyCode.LeftArrow) ||
             Input.GetKeyDown(KeyCode.RightArrow))
         {
-            RotateTowardsAttackDirection();
+            RotateTowardsAttackDirection();  // 공격 방향으로 즉시 회전
             FireBullet();
             animator.SetTrigger("Attack");  // 공격 애니메이션 실행         
         }
     }
 
-    // 공격 방향으로 회전하는 메소드
+    // 공격 방향으로 즉시 회전하는 메소드
     private void RotateTowardsAttackDirection()
     {
-        // 공격 방향으로 회전
+        // 공격 방향으로 바로 회전
         if (attackDirection != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(attackDirection);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = targetRotation; // 즉시 회전
         }
     }
 

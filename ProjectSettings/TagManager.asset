@@ -7,11 +7,12 @@ TagManager:
   - Enemy
   - bullet
   - Wall
-  - Potar01
-  - Potar05
-  - Potar04
-  - Potar03
-  - Potar02
+  - Room01leftPortal
+  - Room01rightPortal
+  - Room02leftPortal
+  - Room02rightPortal
+  - Room03leftPortal
+  - Room03rightPortal
   layers:
   - Default
   - TransparentFX
