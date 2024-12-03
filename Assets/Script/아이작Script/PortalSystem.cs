@@ -31,11 +31,17 @@ public class PortalSystem : MonoBehaviour
         // 2¹ø¹æ
         if (other.CompareTag("Room02leftPortal"))
         {
-            Debug.Log("¿ÞÂÊ ·ëÀ¸·Î ÀÌµ¿");
+            if (EnemyCount >= 5)
+            {
+                Debug.Log("¿ÞÂÊ ·ëÀ¸·Î ÀÌµ¿");
+            }
         }
         if (other.CompareTag("Room02rightPortal"))
         {
-            StartCoroutine(MoveToPortal(PortarPoint[0].transform.position, CameraPoint[0].transform.position));
+            if (EnemyCount >= 5)
+            {
+                StartCoroutine(MoveToPortal(PortarPoint[0].transform.position, CameraPoint[0].transform.position));
+            }
         }
         // 3¹ø¹æ
         if (other.CompareTag("Room03leftPortal"))
@@ -58,7 +64,7 @@ public class PortalSystem : MonoBehaviour
         // 5¹ø¹æ
         if (other.CompareTag("Room05leftPortal"))
         {
-            StartCoroutine(MoveToPortal(PortarPoint[5].transform.position, CameraPoint[3].transform.position));
+            StartCoroutine(MoveToPortal(PortarPoint[6].transform.position, CameraPoint[3].transform.position));
         }
         if (other.CompareTag("Room05rightPortal"))
         {
