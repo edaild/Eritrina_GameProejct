@@ -6,8 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Scriptable/EnemyData", fileName = "EnemyData")]
 public class EnemyData : ScriptableObject
 {
-
-    public float health;    // 체력
+    public float MaxHealth;     // 최대 체력
+    public float CurHealth;    // 현재 체력
     public float speed;     // 속도
     public float damage;    // 공격력
 

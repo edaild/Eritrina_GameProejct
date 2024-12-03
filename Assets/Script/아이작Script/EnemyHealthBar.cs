@@ -18,8 +18,8 @@ public class EnemyHealthBar : MonoBehaviour
         // 체력 바 초기화 (체력에 맞게 슬라이더 값을 설정)
         if (healthBar != null)
         {
-            healthBar.maxValue = enemyData.health;
-            healthBar.value = enemyData.health;
+            healthBar.maxValue = enemyData.CurHealth;
+            healthBar.value = enemyData.CurHealth;
         }
     }
 
@@ -28,17 +28,17 @@ public class EnemyHealthBar : MonoBehaviour
     {
         if (isDead) return;  // 적이 이미 죽었으면 더 이상 데미지를 받지 않음
 
-        enemyData.health -= damage; // 체력 감소
-        if (enemyData.health <= 0f)
+        enemyData.CurHealth -= damage; // 체력 감소
+        if (enemyData.CurHealth <= 0f)
         {
-            enemyData.health = 0f;  // 체력이 0 이하로 떨어지지 않도록 처리
+            enemyData.CurHealth = 0f;  // 체력이 0 이하로 떨어지지 않도록 처리
             Die();        // 적이 죽었을 때 처리
         }
 
         // 체력 바 업데이트
         if (healthBar != null)
         {
-            healthBar.value = enemyData.health;  // 슬라이더 값은 0~최대 체력 사이로 설정
+            healthBar.value = enemyData.CurHealth;  // 슬라이더 값은 0~최대 체력 사이로 설정
         }
     }
 
@@ -48,6 +48,8 @@ public class EnemyHealthBar : MonoBehaviour
         if (isDead) return; // 이미 죽었으면 다시 실행하지 않음
 
         isDead = true;  // 죽음 상태로 설정
+
+        enemyData.CurHealth = enemyData.MaxHealth;
 
         Destroy(gameObject);  // 적 오브젝트 삭제
 

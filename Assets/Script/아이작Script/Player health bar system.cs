@@ -19,11 +19,13 @@ public class Playerhealthbarsystem : HealthBar
 
     public HealthBar HealthBar;
     public PortalSystem portalSystem;
+    public EnemyData enemyData;
 
     private void Start()
     {
         HealthBar = FindAnyObjectByType<HealthBar>();
         portalSystem = FindAnyObjectByType<PortalSystem>();
+        enemyData = FindAnyObjectByType<EnemyData>();
     }
 
     private void Update()
@@ -48,7 +50,9 @@ public class Playerhealthbarsystem : HealthBar
 
     public void OnButtonClick_RePlay()      // 게임 재시작
     {
+        
         string sceneName = SceneManager.GetActiveScene().name;
+        enemyData.CurHealth = enemyData.MaxHealth;
         SceneManager.LoadScene(sceneName);
     }
    

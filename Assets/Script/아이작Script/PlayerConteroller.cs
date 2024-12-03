@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     public Transform firePoint; // 총알 발사 위치
     public float bulletSpeed = 20f; // 총알 속도
 
+    [Header("Player Sounds")]
+    public AudioClip walkSound; // 걷는 소리
+    private AudioSource audioSource; // 오디오 소스 컴포넌트
+
     private Rigidbody playerRigidbody;
     private Animator animator;
     private Vector3 moveDirection; // 이동 방향
@@ -20,8 +24,19 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        // Rigidbody 및 Animator 컴포넌트 초기화
         playerRigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+
+        // AudioSource 컴포넌트 가져오기
+        audioSource = GetComponent<AudioSource>();
+
+        // AudioSource가 없다면 추가
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
         playerRigidbody.freezeRotation = true;  // 물리적 회전 방지
     }
 
@@ -47,7 +62,6 @@ public class PlayerController : MonoBehaviour
             moveZ = -1f;
             animator.SetBool("IsWalk", true);
         }
-
         else if (Input.GetKey(KeyCode.A))  // 왼쪽으로 이동
         {
             moveX = -1f;
@@ -73,6 +87,25 @@ public class PlayerController : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
+
+        // 걷는 소리 재생: 이동할 때만 소리 재생
+        if (moveDirection != Vector3.zero && !audioSource.isPlaying)
+        {
+            if (walkSound != null)
+            {
+                audioSource.clip = walkSound;
+                audioSource.Play();
+            }
+            else
+            {
+                Debug.LogWarning("Walk sound not assigned!");
+            }
+        }
+        // 멈출 때 걷는 소리 중지
+        else if (moveDirection == Vector3.zero && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
     }
 
     private void HandleAttack()
@@ -84,7 +117,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow)) attackDirection = Vector3.right;   // 오른쪽
 
         // 방향키를 눌렀을 때 공격 방향으로 회전하고 총알 발사
-        if (Input.GetKeyDown(KeyCode.UpArrow) ||Input.GetKeyDown(KeyCode.DownArrow) ||Input.GetKeyDown(KeyCode.LeftArrow) ||Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             RotateTowardsAttackDirection();  // 공격 방향으로 즉시 회전
             FireBullet();
@@ -92,7 +125,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-           // animator.SetBool("Attack", false);
+            // animator.SetBool("Attack", false);
         }
     }
 

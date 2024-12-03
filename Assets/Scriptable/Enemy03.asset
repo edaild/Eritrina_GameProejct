@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 801aa9b69a110fe4091765d0a9a0d73e, type: 3}
-  m_Name: Enemy01
+  m_Name: Enemy03
   m_EditorClassIdentifier: 
-  MaxHealth: 15
-  CurHealth: 15
-  speed: 6
-  damage: 10
+  MaxHealth: 40
+  CurHealth: 40
+  speed: 2
+  damage: 40
