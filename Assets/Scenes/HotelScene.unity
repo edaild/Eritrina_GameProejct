@@ -18753,12 +18753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5202aed54c3318940994d90f84d5a3fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 1609383428}
-  MaxHp: 100
-  curHp: 100
-  Enemy: {fileID: 2055252443}
-  playerAttack: {fileID: 0}
-  HealthBar: {fileID: 0}
 --- !u!135 &299106225
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -25880,12 +25874,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c87dda6cc0cebe4ab9e62ba4e05caa1, type: 3}
---- !u!95 &414894655 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2396750051525039197, guid: 1c87dda6cc0cebe4ab9e62ba4e05caa1,
-    type: 3}
-  m_PrefabInstance: {fileID: 414894654}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &414894657 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1277432605491951093, guid: 1c87dda6cc0cebe4ab9e62ba4e05caa1,
@@ -40687,9 +40675,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 3
-  player: {fileID: 1869827283}
   stoppingDistance: 2
   Enemy_attack_range: {fileID: 815788445}
+  playerhealthbar: {fileID: 0}
 --- !u!135 &653072301
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -44048,9 +44036,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 3
-  player: {fileID: 1869827283}
   stoppingDistance: 2
   Enemy_attack_range: {fileID: 183408658}
+  playerhealthbar: {fileID: 0}
 --- !u!135 &706463426
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -50620,7 +50608,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1869827277}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CharacterSystem, Assembly-CSharp
         m_MethodName: OnButtonClickCharacter
         m_Mode: 3
@@ -57351,9 +57339,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 3
-  player: {fileID: 1869827283}
   stoppingDistance: 2
   Enemy_attack_range: {fileID: 1856259260}
+  playerhealthbar: {fileID: 0}
 --- !u!135 &895774855
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -60580,7 +60568,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1869827277}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CharacterSystem, Assembly-CSharp
         m_MethodName: OnButtonClickCharacter
         m_Mode: 3
@@ -67568,12 +67556,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5202aed54c3318940994d90f84d5a3fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 968218892}
-  MaxHp: 100
-  curHp: 100
-  Enemy: {fileID: 895774853}
-  playerAttack: {fileID: 0}
-  HealthBar: {fileID: 0}
 --- !u!135 &1032990934
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -82488,12 +82470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5202aed54c3318940994d90f84d5a3fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 1558204699}
-  MaxHp: 100
-  curHp: 100
-  Enemy: {fileID: 1592524925}
-  playerAttack: {fileID: 0}
-  HealthBar: {fileID: 0}
 --- !u!135 &1255074657
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -87433,17 +87409,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d3b542cc85df54ba5362384a05d2e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  functionUI: {fileID: 941780366}
-  functiontext: {fileID: 614360376}
-  textUI: {fileID: 117810363}
-  npcName: {fileID: 9944456}
-  textObject: {fileID: 1021187667}
-  PlayerHpbar: {fileID: 1266373143}
-  menuButton: {fileID: 2051385459}
-  NpcCheck: 0
-  text_Count: 0
-  questManager: {fileID: 0}
-  gameManger: {fileID: 0}
 --- !u!1 &1337387210
 GameObject:
   m_ObjectHideFlags: 0
@@ -90042,12 +90007,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1378934944}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1378934952 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7305939671922454539, guid: 005a1b86f0a822641b0e5761273a89dc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1378934944}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1381637909
 GameObject:
   m_ObjectHideFlags: 0
@@ -90811,12 +90770,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5202aed54c3318940994d90f84d5a3fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 1447386186}
-  MaxHp: 100
-  curHp: 100
-  Enemy: {fileID: 706463424}
-  playerAttack: {fileID: 0}
-  HealthBar: {fileID: 0}
 --- !u!135 &1392827006
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -92119,13 +92072,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7309908f1a67aaa40924bac63ff86998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentQuest:
-    title: 
-    steps: []
-    currentStep: 0
-    experience: 0
-  questUI: {fileID: 1200593825}
-  questText: {fileID: 1568356677}
 --- !u!114 &1409483743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92138,7 +92084,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513021b302f4a51478ef5a131ff5f217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainQuestCount: 0
 --- !u!4 &1409483744
 Transform:
   m_ObjectHideFlags: 0
@@ -92167,17 +92112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d3b542cc85df54ba5362384a05d2e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  functionUI: {fileID: 941780366}
-  functiontext: {fileID: 614360376}
-  textUI: {fileID: 117810363}
-  npcName: {fileID: 9944456}
-  textObject: {fileID: 9944456}
-  PlayerHpbar: {fileID: 1266373143}
-  menuButton: {fileID: 2051385459}
-  NpcCheck: 0
-  text_Count: 0
-  questManager: {fileID: 0}
-  gameManger: {fileID: 0}
 --- !u!1 &1414507397
 GameObject:
   m_ObjectHideFlags: 0
@@ -97045,7 +96979,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1869827277}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CharacterSystem, Assembly-CSharp
         m_MethodName: OnButtonClickCharacter
         m_Mode: 3
@@ -98406,12 +98340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5202aed54c3318940994d90f84d5a3fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 299988354}
-  MaxHp: 100
-  curHp: 100
-  Enemy: {fileID: 653072299}
-  playerAttack: {fileID: 0}
-  HealthBar: {fileID: 0}
 --- !u!135 &1512225679
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -103475,9 +103403,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 3
-  player: {fileID: 1869827283}
   stoppingDistance: 2
   Enemy_attack_range: {fileID: 248767608}
+  playerhealthbar: {fileID: 0}
 --- !u!135 &1592524927
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -119045,7 +118973,6 @@ GameObject:
   - component: {fileID: 1869827280}
   - component: {fileID: 1869827279}
   - component: {fileID: 1869827278}
-  - component: {fileID: 1869827277}
   - component: {fileID: 1869827276}
   - component: {fileID: 1869827275}
   m_Layer: 0
@@ -119070,10 +118997,14 @@ MonoBehaviour:
   healthBar: {fileID: 1266373145}
   MaxHp: 1000
   curHp: 1000
+  cube: {fileID: 0}
   DieImage: {fileID: 2001213375}
   Player: {fileID: 1869827273}
   curHpText: {fileID: 1323750716}
+  enemyattackcheck: 0
+  enemyattackcheck01: 0
   HealthBar: {fileID: 1869827275}
+  portalSystem: {fileID: 0}
 --- !u!114 &1869827276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119086,48 +119017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0703bb97026c4746b453669516052e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack_range: {fileID: 938555369}
-  attackN: 10
-  attackS: 15
-  attackQ: 20
-  attackCheckS: 0
-  attackCheckQ: 0
-  attackCheckN: 0
-  bulletPrefab: {fileID: 673125030386518017, guid: 7a229b9fb3f11534f97ed79ab23c6140,
-    type: 3}
-  shootPoint: {fileID: 1592524931}
---- !u!114 &1869827277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869827273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 296032e79c7ca4e4bb0166268cea62ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 5
-  runSpeed: 10
-  rotationSpeed: 7
-  playerCharacter:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  characterButtons:
-  - {fileID: 1910107992}
-  - {fileID: 1492210655}
-  - {fileID: 808862350}
-  - {fileID: 934766202}
-  animators:
-  - {fileID: 0}
-  - {fileID: 1378934952}
-  - {fileID: 414894655}
-  - {fileID: 0}
-  TextUI: {fileID: 117810363}
-  mainQuest01: {fileID: 0}
+  Player_Attack: 0
 --- !u!114 &1869827278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122101,7 +121991,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1869827277}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CharacterSystem, Assembly-CSharp
         m_MethodName: OnButtonClickCharacter
         m_Mode: 3
@@ -131027,9 +130917,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 3
-  player: {fileID: 1869827283}
   stoppingDistance: 2
   Enemy_attack_range: {fileID: 57489543}
+  playerhealthbar: {fileID: 0}
 --- !u!135 &2055252445
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -135148,17 +135038,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab5c166c3c260d4c92fc01d45294e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainMenu: {fileID: 1062940056}
-  map: {fileID: 0}
-  characterButton01: {fileID: 1910107990}
-  characterButton02: {fileID: 1492210653}
-  characterButton03: {fileID: 808862348}
-  characterButton04: {fileID: 934766200}
-  functionUI: {fileID: 941780366}
-  MainQuest01: {fileID: 0}
-  questManager: {fileID: 0}
-  Mainmenu_On: 0
-  Mapmenu_On: 0
 --- !u!114 &2114539741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137010,100 +136889,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &6466307001934534367
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 394562444330576310, guid: 6e052780c22cecc4daf98e13ed54576f,
-        type: 3}
-      propertyPath: m_Name
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 1214961918167866023, guid: 6e052780c22cecc4daf98e13ed54576f,
-        type: 3}
-      propertyPath: Cam
-      value: 
-      objectReference: {fileID: 923725605}
-    - target: {fileID: 1546578859078857650, guid: 6e052780c22cecc4daf98e13ed54576f,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1546578859078857650, guid: 6e052780c22cecc4daf98e13ed54576f,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806400311030337338, guid: 6e052780c22cecc4daf98e13ed54576f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 565.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806400311030337338, guid: 6e052780c22cecc4daf98e13ed54576f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 45.756012
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806400311030337338, guid: 6e052780c22cecc4daf98e13ed54576f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 438.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806400311030337338, guid: 6e052780c22cecc4daf98e13ed54576f,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806400311030337338, guid: 6e052780c22cecc4daf98e13ed54576f,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806400311030337338, guid: 6e052780c22cecc4daf98e13ed54576f,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806400311030337338, guid: 6e052780c22cecc4daf98e13ed54576f,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806400311030337338, guid: 6e052780c22cecc4daf98e13ed54576f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806400311030337338, guid: 6e052780c22cecc4daf98e13ed54576f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806400311030337338, guid: 6e052780c22cecc4daf98e13ed54576f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8771680003389136246, guid: 6e052780c22cecc4daf98e13ed54576f,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1869827283}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6e052780c22cecc4daf98e13ed54576f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 921691761}
-  - {fileID: 6466307001934534367}
   - {fileID: 1592524931}
   - {fileID: 895774859}
   - {fileID: 706463430}

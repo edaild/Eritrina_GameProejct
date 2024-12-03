@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Runtime.InteropServices.WindowsRuntime;
+
 
 public class Playerhealthbarsystem : HealthBar
 {
@@ -14,7 +14,8 @@ public class Playerhealthbarsystem : HealthBar
     public Text curHpText;
 
     public bool enemyattackcheck;
-    private float attackDamage = 5f; // 공격에 의해 감소하는 체력
+
+
 
     public HealthBar HealthBar;
     public PortalSystem portalSystem;
@@ -27,19 +28,11 @@ public class Playerhealthbarsystem : HealthBar
 
     private void Update()
     {
+        curHpText.text = $"{(int)curHp} / {(int)MaxHp}";
         handleHp();
-        Enemyattackcheck();
         Die();
     }
 
-
-    private void Enemyattackcheck()
-    {
-        if (enemyattackcheck)
-        {
-            curHp -= attackDamage * Time.deltaTime; // 체력을 감소시키는 로직
-        }
-    }
 
     private void Die()
     {

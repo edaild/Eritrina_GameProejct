@@ -12,7 +12,11 @@ TagManager:
   - Room02leftPortal
   - Room02rightPortal
   - Room03leftPortal
-  - Room03rightPortal
+  - Room03upPortal
+  - Room04rightPortal
+  - Room04downPortal
+  - Room05leftPortal
+  - Room05rightPortal
   layers:
   - Default
   - TransparentFX

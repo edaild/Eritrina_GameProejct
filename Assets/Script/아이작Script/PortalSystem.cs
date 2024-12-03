@@ -13,6 +13,7 @@ public class PortalSystem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // 1번방
         if (other.CompareTag("Room01leftPortal"))
         {
             if (EnemyCount >= 2)
@@ -27,6 +28,7 @@ public class PortalSystem : MonoBehaviour
                 StartCoroutine(MoveToPortal(PortarPoint[4].transform.position, CameraPoint[2].transform.position));
             }
         }
+        // 2번방
         if (other.CompareTag("Room02leftPortal"))
         {
             Debug.Log("왼쪽 룸으로 이동");
@@ -35,14 +37,34 @@ public class PortalSystem : MonoBehaviour
         {
             StartCoroutine(MoveToPortal(PortarPoint[0].transform.position, CameraPoint[0].transform.position));
         }
+        // 3번방
         if (other.CompareTag("Room03leftPortal"))
         {
             StartCoroutine(MoveToPortal(PortarPoint[1].transform.position, CameraPoint[0].transform.position));
         }
-        if (other.CompareTag("Room03rightPortal"))
+        if (other.CompareTag("Room03upPortal"))
         {
-            Debug.Log("오른쪽 룸으로 이동");
+            StartCoroutine(MoveToPortal(PortarPoint[7].transform.position, CameraPoint[3].transform.position));
         }
+        // 4번방
+        if (other.CompareTag("Room04rightPortal"))
+        {
+            StartCoroutine(MoveToPortal(PortarPoint[8].transform.position, CameraPoint[4].transform.position));
+        }
+        if (other.CompareTag("Room04downPortal"))
+        {
+            StartCoroutine(MoveToPortal(PortarPoint[5].transform.position, CameraPoint[2].transform.position));
+        }
+        // 5번방
+        if (other.CompareTag("Room05leftPortal"))
+        {
+            StartCoroutine(MoveToPortal(PortarPoint[5].transform.position, CameraPoint[3].transform.position));
+        }
+        if (other.CompareTag("Room05rightPortal"))
+        {
+            StartCoroutine(MoveToPortal(PortarPoint[10].transform.position, CameraPoint[5].transform.position));
+        }
+
     }
 
     private IEnumerator MoveToPortal(Vector3 portalPosition, Vector3 cameraPosition)

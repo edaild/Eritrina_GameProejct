@@ -84,14 +84,15 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow)) attackDirection = Vector3.right;   // 오른쪽
 
         // 방향키를 눌렀을 때 공격 방향으로 회전하고 총알 발사
-        if (Input.GetKeyDown(KeyCode.UpArrow) ||
-            Input.GetKeyDown(KeyCode.DownArrow) ||
-            Input.GetKeyDown(KeyCode.LeftArrow) ||
-            Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) ||Input.GetKeyDown(KeyCode.DownArrow) ||Input.GetKeyDown(KeyCode.LeftArrow) ||Input.GetKeyDown(KeyCode.RightArrow))
         {
             RotateTowardsAttackDirection();  // 공격 방향으로 즉시 회전
             FireBullet();
-            animator.SetTrigger("Attack");  // 공격 애니메이션 실행         
+            animator.SetBool("Attack", true);  // 공격 애니메이션 실행         
+        }
+        else
+        {
+           // animator.SetBool("Attack", false);
         }
     }
 
