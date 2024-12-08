@@ -10,13 +10,13 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        // 총알이 살아있는 시간 갱신
+      
         timeAlive += Time.deltaTime;
 
-        // lifetime이 경과하면 총알 삭제
+       
         if (timeAlive >= lifetime)
         {
-            Destroy(gameObject); // 총알 삭제
+            Destroy(gameObject); 
         }
     }
 
@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
         // 적과 충돌했을 때
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            // 적의 체력 바를 찾아서 데미지 전달
+            
             EnemyHealthBar enemyHealthBar = collision.gameObject.GetComponent<EnemyHealthBar>();
             if (enemyHealthBar != null)
             {
@@ -37,13 +37,17 @@ public class Bullet : MonoBehaviour
                 Debug.LogWarning("EnemyHealthBar 컴포넌트가 없습니다!");
             }
 
-            Destroy(gameObject);  // 총알 삭제
+            Destroy(gameObject);  
         }
-        // 벽과 충돌했을 때
+     
         else if (collision.gameObject.CompareTag("Wall"))
         {
-            Debug.Log("벽과 충돌하여 총알이 파괴되었습니다.");
-            Destroy(gameObject);  // 총알 삭제
+            Destroy(gameObject); 
+        }
+
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
         }
     }
 }

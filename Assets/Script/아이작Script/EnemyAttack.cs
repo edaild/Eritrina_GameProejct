@@ -11,10 +11,10 @@ public class EnemyAttack : MonoBehaviour
 
     private void Start()
     {
-        // Playerhealthbarsystem과 EnemyData를 씬에서 찾아 할당합니다.
+   
         playerhealthbar = FindObjectOfType<Playerhealthbarsystem>();
 
-        // EnemyData는 인스펙터에서 할당하거나, 여기에서 초기화해야 합니다.
+   
         if (enemyData == null)
         {
             Debug.LogError("EnemyData가 할당되지 않았습니다!");
@@ -23,11 +23,11 @@ public class EnemyAttack : MonoBehaviour
 
     private void Update()
     {
-        // 공격 상태일 때 플레이어 체력을 감소시킵니다.
+      
         if (IsOnAttack && playerhealthbar != null)
         {
-            playerhealthbar.curHp -= enemyData.damage * Time.deltaTime;  // 지속적으로 체력을 감소
-            playerhealthbar.curHp = Mathf.Max(playerhealthbar.curHp, 0);  // 체력이 0보다 작지 않도록 제한
+            playerhealthbar.curHp -= enemyData.damage * Time.deltaTime;  
+            playerhealthbar.curHp = Mathf.Max(playerhealthbar.curHp, 0);  
         }
     }
 

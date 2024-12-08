@@ -49,7 +49,7 @@ public class Playerhealthbarsystem : HealthBar
     {
         
         string sceneName = SceneManager.GetActiveScene().name;
-        enemyData.CurHealth = enemyData.MaxHealth;
+       // enemyData.CurHealth = enemyData.MaxHealth;
         SceneManager.LoadScene(sceneName);
     }
    

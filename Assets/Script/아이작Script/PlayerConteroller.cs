@@ -14,24 +14,23 @@ public class PlayerController : MonoBehaviour
     [Header("Player Sounds")]
     public AudioClip walkSound; // 걷는 소리
     private AudioSource audioSource; // 오디오 소스 컴포넌트
+    
 
     private Rigidbody playerRigidbody;
     private Animator animator;
     private Vector3 moveDirection; // 이동 방향
     private Vector3 attackDirection; // 공격 방향 (방향키로 설정)
 
-    private bool isRotating = false; // 회전 중인지 확인하는 변수
+    private bool isRotating = false;
 
     private void Start()
     {
-        // Rigidbody 및 Animator 컴포넌트 초기화
         playerRigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
 
-        // AudioSource 컴포넌트 가져오기
         audioSource = GetComponent<AudioSource>();
 
-        // AudioSource가 없다면 추가
+
         if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
@@ -96,10 +95,6 @@ public class PlayerController : MonoBehaviour
                 audioSource.clip = walkSound;
                 audioSource.Play();
             }
-            else
-            {
-                Debug.LogWarning("Walk sound not assigned!");
-            }
         }
         // 멈출 때 걷는 소리 중지
         else if (moveDirection == Vector3.zero && audioSource.isPlaying)
@@ -122,10 +117,6 @@ public class PlayerController : MonoBehaviour
             RotateTowardsAttackDirection();  // 공격 방향으로 즉시 회전
             FireBullet();
             animator.SetBool("Attack", true);  // 공격 애니메이션 실행         
-        }
-        else
-        {
-            // animator.SetBool("Attack", false);
         }
     }
 
