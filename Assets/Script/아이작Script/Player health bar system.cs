@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
@@ -11,7 +10,6 @@ public class Playerhealthbarsystem : HealthBar
     public GameObject cube;         // 재시작 시 플레이어 재생성 위치
     public GameObject DieImage;    // 게임 오버 이미지
     public GameObject Player;       // 플레이어
-    public Text curHpText;
 
     public bool enemyattackcheck;
 
@@ -30,7 +28,6 @@ public class Playerhealthbarsystem : HealthBar
 
     private void Update()
     {
-        curHpText.text = $"{(int)curHp} / {(int)MaxHp}";
         handleHp();
         Die();
     }
