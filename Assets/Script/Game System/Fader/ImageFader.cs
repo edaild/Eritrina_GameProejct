@@ -43,7 +43,7 @@ public class ImageFader : MonoBehaviour
             yield return new WaitForSeconds(displayDuration);
 
             // 페이드 아웃 효과가 완료된 후 씬 전환을 시작합니다.
-            yield return StartCoroutine(FadeOutAndLoadScene("MainScene"));
+            yield return StartCoroutine(FadeOutAndLoadScene("MainScene01"));
 
             // 새로운 씬 로드 후 페이드 인 효과를 적용합니다.
             yield return StartCoroutine(FadeInAfterSceneLoad());
