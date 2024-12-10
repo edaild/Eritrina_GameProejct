@@ -17,6 +17,47 @@ TagManager:
   - Room04downPortal
   - Room05leftPortal
   - Room05rightPortal
+  - Room06leftPortal
+  - Room06upPortal
+  - Room06downPortal
+  - Room07upPortal
+  - Room07downPortal
+  - Room08upPortal
+  - Room08downPortal
+  - Room09upPortal
+  - Room09downPortal
+  - Room10upPortal
+  - Room10downPortal
+  - Room11downPortal
+  - Room12upPortal
+  - Room12downPortal
+  - Room13upPortal
+  - Room13downPortal
+  - Room14upPortal
+  - Room14downPortal
+  - Room15upPortal
+  - Room15downPortal
+  - Room16dupPortal
+  - Room02upPortal
+  - Room02downPortal
+  - Room17upPortal
+  - Room17downPortal
+  - Room18upPortal
+  - Room18downPortal
+  - Room19upPortal
+  - Room19downPortal
+  - Room20upPortal
+  - Room20downPortal
+  - Room21downPortal
+  - Room22upPortal
+  - Room22downPortal
+  - Room23upPortal
+  - Room23downPortal
+  - Room24upPortal
+  - Room24downPortal
+  - Room25upPortal
+  - Room25downPortal
+  - Room26upPortal
   layers:
   - Default
   - TransparentFX
