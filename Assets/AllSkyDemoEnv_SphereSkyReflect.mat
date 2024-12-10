@@ -8,18 +8,18 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: AllSkyDemoEnv_SphereSkyReflect
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _SUNDISK_HIGH_QUALITY
+  m_InvalidKeywords:
   - _SURFACE_TYPE_TRANSPARENT
-  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
-  stringTagMap:
-    RenderType: Transparent
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses:
   - DepthOnly
   - SHADOWCASTER
@@ -119,6 +119,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _AtmosphereThickness: 1
     - _Blend: 1
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -132,6 +133,7 @@ Material:
     - _DstBlendAlpha: 10
     - _EmissionScaleUI: 0
     - _EnvironmentReflections: 1
+    - _Exposure: 0
     - _GlossMapScale: 0
     - _Glossiness: 1
     - _GlossyReflections: 0
@@ -149,6 +151,9 @@ Material:
     - _SpecularPower: 0.03
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
+    - _SunDisk: 2
+    - _SunSize: 0.04
+    - _SunSizeConvergence: 5
     - _Surface: 1
     - _UVSec: 0
     - _VertexOcclusion: 0.62
@@ -160,8 +165,10 @@ Material:
     - _DiffuseColour: {r: 0.2352941, g: 0.2352941, b: 0.2352941, a: 1}
     - _EmissionColor: {r: 0.007843138, g: 0, b: 0.00040013186, a: 1}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
+    - _GroundColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _RimColour: {r: 0, g: 0, b: 0, a: 1}
+    - _SkyTint: {r: 0, g: 0, b: 0, a: 1}
     - _SnowColour: {r: 1, g: 1, b: 1, a: 1}
     - _SnowSpecularColour: {r: 0.44852942, g: 0.44852942, b: 0.44852942, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}

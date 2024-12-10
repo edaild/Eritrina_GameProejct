@@ -55,14 +55,8 @@ public class PortalSystem : MonoBehaviour
         // 2번방
         if (other.CompareTag("Room02leftPortal"))
         {
-            if (inventory.keyCount >= 3)
-            {
-                SceneManager.LoadScene("FinishScene");  // 씬 이동
-            }
-            else
-            {
-                uIData.FunctionText.text = "열쇄가 부족 합니다.";
-            }
+            SceneManager.LoadScene("FinishScene");
+            Debug.Log("씬 이동");
         }
         if (other.CompareTag("Room02rightPortal"))
         {

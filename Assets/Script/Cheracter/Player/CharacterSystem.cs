@@ -1,164 +1,107 @@
-//using UnityEngine;
-//using UnityEngine.UI;
+using UnityEngine;
 
-//public class CharacterSystem : MonoBehaviour
-//{
-//    [Header("Player Movement")]
-//    public float playerSpeed = 5f; // 이동 속도
-//    public float runSpeed = 10f; // 뛰는 속도
-//    public float rotationSpeed = 7f;
+public class CharacterSystem : MonoBehaviour
+{
+    [Header("Player Movement")]
+    public float playerSpeed = 5f;
+    public float rotationSpeed = 7f;
 
-//    [Header("Character System")]
-//    public GameObject[] playerCharacter = new GameObject[4]; // 캐릭터 배열
-//    public Button[] characterButtons; // UI 버튼 배열
-//    public Animator[] animators; // 애니메이터 배열
+    [Header("Character System")]
+    public GameObject[] playerCharacter = new GameObject[4];
 
-//    public GameObject TextUI; // UI 텍스트 오브젝트
+    private Rigidbody playerRigidbody;
 
-//    private Rigidbody playerRigidbody; // Rigidbody
+    public Animator an;
 
-//    public MainQuest01 mainQuest01;
+    private AudioSource audioSource;
+    public AudioClip walkSound;
 
-//    // 활성화된 버튼 색상 (16진수 색상 코드 #3E3593)
-//    private Color activeColor = new Color32(62, 53, 147, 178); // RGB(62, 53, 147) 및 Alpha(255)
-//    private Color inactiveColor = new Color32(0, 0, 0, 178); // RGB(0, 0, 0) 및 Alpha(255)
+    private bool isWalking = false;
 
-//    private void Start()
-//    {
-//        playerRigidbody = GetComponent<Rigidbody>();
-//        mainQuest01 = GetComponent<MainQuest01>();
-//        InitializeAnimators();
-//        CharacterReset();
-//    }
+    private void Start()
+    {
+        playerRigidbody = GetComponent<Rigidbody>();
 
-//    private void Update()
-//    {
-//        NotHandleMovementCheck();
-//        HandleCharacterChangeKeyboard();
-//            HandleMovement();
-//    }
+        // AudioSource 컴포넌트가 없다면 추가
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
 
-//    public void NotHandleMovementCheck()
-//    {
-//        if (!TextUI.activeSelf || Input.GetKeyDown(KeyCode.LeftAlt)) // TextUI가 비활성화된 경우에만 HandleMovement 호출
-//        {
-            
-//        }
-//        else
-//        {
-//            StopMovement(); // TextUI가 활성화된 경우에는 이동 정지
-//        }
-//    }
+        // walkSound가 할당되어 있는지 확인
+        if (walkSound == null)
+        {
+            Debug.LogError("walkSound AudioClip is not assigned!");
+        }
+    }
 
-//    private void HandleMovement()
-//    {
-//        float xInput = Input.GetAxis("Horizontal");
-//        float zInput = Input.GetAxis("Vertical");
+    private void Update()
+    {
+        HandleMovement();
+    }
 
-//        Vector3 cameraForward = Camera.main.transform.forward;
-//        Vector3 cameraRight = Camera.main.transform.right;
+    private void HandleMovement()
+    {
+        float xInput = Input.GetAxis("Horizontal");
+        float zInput = Input.GetAxis("Vertical");
 
-//        cameraForward.y = 0;
-//        cameraRight.y = 0;
+        Vector3 cameraForward = Camera.main.transform.forward;
+        Vector3 cameraRight = Camera.main.transform.right;
 
-//        cameraForward.Normalize();
-//        cameraRight.Normalize();
+        cameraForward.y = 0;
+        cameraRight.y = 0;
 
-//        Vector3 movement = (cameraRight * xInput + cameraForward * zInput).normalized;
+        cameraForward.Normalize();
+        cameraRight.Normalize();
 
-//        float currentSpeed = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) ? runSpeed : playerSpeed;
+        Vector3 movement = (cameraRight * xInput + cameraForward * zInput).normalized;
 
-//        playerRigidbody.velocity = new Vector3(movement.x * currentSpeed, playerRigidbody.velocity.y, movement.z * currentSpeed);
+        playerRigidbody.velocity = new Vector3(movement.x * playerSpeed, playerRigidbody.velocity.y, movement.z * playerSpeed);
 
-//        Animator currentAnimator = GetCurrentAnimator();
+        bool isMoving = movement.magnitude > 0;
 
-//        if (currentAnimator != null)
-//        {
-//            bool isMoving = movement != Vector3.zero;
-//            currentAnimator.SetBool("IsWalk", isMoving && !Input.GetKey(KeyCode.LeftShift));
-//            currentAnimator.SetBool("IsRun", isMoving && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)));
-//        }
+        // "IsWalk" 파라미터가 animator에 존재하는지 확인
+        if (an != null)
+        {
+            an.SetBool("IsWalk", isMoving);
+        }
+        else
+        {
+            Debug.LogError("Animator component is not assigned!");
+        }
 
-//        if (movement != Vector3.zero)
-//        {
-//            Quaternion targetRotation = Quaternion.LookRotation(movement);
-//            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-//        }
-//    }
+        if (movement != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(movement);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
 
-//    private void StopMovement()
-//    {
-//        playerRigidbody.velocity = Vector3.zero; // 움직임을 정지
-//        Animator currentAnimator = GetCurrentAnimator();
-//        if (currentAnimator != null)
-//        {
-//            currentAnimator.SetBool("IsWalk", false);
-//            currentAnimator.SetBool("IsRun", false);
-//        }
-//    }
+        HandleAudio(isMoving);
+    }
 
-//    private void InitializeAnimators()
-//    {
-//        animators = new Animator[playerCharacter.Length];
-//        for (int i = 0; i < playerCharacter.Length; i++)
-//        {
-//            animators[i] = playerCharacter[i].GetComponent<Animator>();
-//        }
-//    }
-
-//    private Animator GetCurrentAnimator()
-//    {
-//        for (int i = 0; i < playerCharacter.Length; i++)
-//        {
-//            if (playerCharacter[i].activeSelf)
-//            {
-//                return animators[i];
-//            }
-//        }
-//        return null;
-//    }
-
-//    private void CharacterReset()
-//    {
-//        if (playerCharacter.Length > 0)
-//        {
-//            for (int i = 0; i < playerCharacter.Length; i++)
-//            {
-//                playerCharacter[i].SetActive(i == 0);
-//                characterButtons[i].image.color = i == 0 ? activeColor : inactiveColor;
-//            }
-//        }
-//    }
-
-//    public void OnButtonClickCharacter(int characterIndex)
-//    {
-//        if (characterIndex >= 0 && characterIndex < playerCharacter.Length)
-//        {
-//            for (int i = 0; i < playerCharacter.Length; i++)
-//            {
-//                playerCharacter[i].SetActive(i == characterIndex);
-//                characterButtons[i].image.color = i == characterIndex ? activeColor : inactiveColor;
-//            }
-//        }
-//    }
-
-//    private void HandleCharacterChangeKeyboard()
-//    {
-//        if (Input.GetKeyDown(KeyCode.Alpha1))
-//        {
-//            OnButtonClickCharacter(0);
-//        }
-//        if (Input.GetKeyDown(KeyCode.Alpha2))
-//        {
-//            OnButtonClickCharacter(1);
-//        }
-//        if (Input.GetKeyDown(KeyCode.Alpha3))
-//        {
-//            OnButtonClickCharacter(2);
-//        }
-//        if (Input.GetKeyDown(KeyCode.Alpha4))
-//        {
-//            OnButtonClickCharacter(3);
-//        }
-//    }
-//}
+    private void HandleAudio(bool isMoving)
+    {
+        if (isMoving)  // 걷고 있을 때
+        {
+            if (!isWalking)
+            {
+                isWalking = true;
+                if (walkSound != null)
+                {
+                    audioSource.clip = walkSound;  // 걷기 소리 설정
+                    audioSource.loop = true;       // 소리 반복 설정
+                    audioSource.Play();            // 소리 재생
+                }
+            }
+        }
+        else
+        {
+            if (isWalking)
+            {
+                isWalking = false;
+                audioSource.Stop();  // 소리 멈추기
+            }
+        }
+    }
+}

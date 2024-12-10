@@ -8,9 +8,9 @@ public class CameraController : MonoBehaviour
     public Camera thirdPersonCamera;  // 3인칭 카메라
     public Transform target;           // 카메라가 따라갈 플레이어
 
-    public float cameraDistance = 5.0f;  // 카메라 거리
+    public float cameraDistance = 3.0f;  // 카메라 거리
     public float minDistance = 1.0f;
-    public float maxDistance = 10.0f;
+    public float maxDistance = 3.0f;
 
     private float currentX = 0.0f;      // 수평 회전 각도
     private float currentY = 45.0f;     // 수직 회전 각도
@@ -18,6 +18,8 @@ public class CameraController : MonoBehaviour
     private const float Y_ANGLE_MIN = 0.0f;
     private const float Y_ANGLE_MAX = 50.0f;
     public float mouseSensitivity = 200f;  // 마우스 감도
+
+    public LayerMask collisionLayers;   // 충돌할 레이어 (벽, 장애물 등)
 
     void Start()
     {
@@ -50,6 +52,7 @@ public class CameraController : MonoBehaviour
 
     public void HandleRotation()
     {
+        // 마우스로 카메라의 수평 및 수직 회전 각도 변경
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
@@ -57,14 +60,31 @@ public class CameraController : MonoBehaviour
         currentY -= mouseY; // 위로 이동 시 카메라가 아래로, 아래로 이동 시 위로
         currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
 
-        Vector3 dir = new Vector3(0, 0, -cameraDistance);
+        Vector3 direction = new Vector3(0, 0, -cameraDistance); // 카메라가 타겟을 향하는 방향
+
+        // 카메라 회전 적용
         Quaternion rotation = Quaternion.Euler(currentY, currentX, 0.0f);
-        thirdPersonCamera.transform.position = target.position + rotation * dir;  // 타겟 위치를 따라감
+        Vector3 desiredPosition = target.position + rotation * direction;
+
+        // 카메라와 타겟 사이에 Raycast로 벽이 있는지 확인
+        RaycastHit hit;
+        if (Physics.Raycast(target.position, desiredPosition - target.position, out hit, cameraDistance, collisionLayers))
+        {
+            // 벽과 충돌하면 카메라를 그 지점으로 이동
+            thirdPersonCamera.transform.position = hit.point;
+        }
+        else
+        {
+            // 충돌이 없으면 원래 계산된 위치로 이동
+            thirdPersonCamera.transform.position = desiredPosition;
+        }
+
         thirdPersonCamera.transform.LookAt(target.position);  // 타겟을 바라봄
     }
 
     public void HandleZoom()
     {
+        // 마우스 휠로 카메라 거리 조정
         cameraDistance = Mathf.Clamp(cameraDistance - Input.GetAxis("Mouse ScrollWheel") * 5, minDistance, maxDistance);
     }
 
