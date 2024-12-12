@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8955652849018314753}
   - component: {fileID: 1107595640266876037}
   - component: {fileID: 7990536510449893611}
+  - component: {fileID: 4207507418183334723}
   m_Layer: 0
   m_Name: Enemy03
   m_TagString: Enemy
@@ -146,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d7d616ca473154190f13a8d78df387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stoppingDistance: 2
+  stoppingDistance: 2.5
   Enemy_attack_range: {fileID: 6460628572656221715}
   playerhealthbar: {fileID: 0}
   enemydata: {fileID: 11400000, guid: fadc2f7480ba807438fabc7f1895ab11, type: 2}
@@ -194,6 +195,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!195 &4207507418183334723
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654035925675978151}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &2757143479415233507
 GameObject:
   m_ObjectHideFlags: 0
