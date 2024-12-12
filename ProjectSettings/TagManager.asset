@@ -58,6 +58,8 @@ TagManager:
   - Room25upPortal
   - Room25downPortal
   - Room26upPortal
+  - piece
+  - spBullt
   layers:
   - Default
   - TransparentFX

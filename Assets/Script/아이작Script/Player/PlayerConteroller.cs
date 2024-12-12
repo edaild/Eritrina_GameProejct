@@ -5,16 +5,16 @@ public class PlayerController : MonoBehaviour
     [Header("Player Movement")]
     public float playerSpeed = 5f; // 이동 속도
     public float rotationSpeed = 700f; // 회전 속도
-    public float attackRange = 1.5f; // 공격 범위
+    public float attackRange = 2f; // 공격 범위
     public float attackDamage = 10f; // 공격 데미지
     public GameObject bulletPrefab; // 총알 프리팹
+    public GameObject SPbulletPrefab;   // 특별한 총알 프리팹
     public Transform firePoint; // 총알 발사 위치
     public float bulletSpeed = 20f; // 총알 속도
 
     [Header("Player Sounds")]
     public AudioClip walkSound; // 걷는 소리
     private AudioSource audioSource; // 오디오 소스 컴포넌트
-    
 
     private Rigidbody playerRigidbody;
     private Animator animator;
@@ -22,14 +22,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 attackDirection; // 공격 방향 (방향키로 설정)
 
     private bool isRotating = false;
+    private bool spbulletCheck = false; // 올바르게 초기화
+    private float spbulletTimer = 0f; // 특별한 총알 상태 유지 타이머
 
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-
         audioSource = GetComponent<AudioSource>();
-
 
         if (audioSource == null)
         {
@@ -43,6 +43,24 @@ public class PlayerController : MonoBehaviour
     {
         HandleMovement();
         HandleAttack();
+
+        // 특수 총알 전환 (Enter 키로 설정)
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            ActivateSpecialBullet(); // 특별한 총알 상태 활성화
+            Debug.Log("특수총알이 활성화 됩니다.");
+        }
+
+        // 특수 총알 상태가 활성화된 경우 타이머를 작동시켜 2분 후에 비활성화
+        if (spbulletCheck)
+        {
+            spbulletTimer += Time.deltaTime;
+
+            if (spbulletTimer >= 60f) // 2분(120초) 경과 시
+            {
+                DeactivateSpecialBullet(); // 2분 후 특수 총알 비활성화
+            }
+        }
     }
 
     private void HandleMovement()
@@ -134,13 +152,42 @@ public class PlayerController : MonoBehaviour
     // 총알 발사 메소드
     private void FireBullet()
     {
-        // 총알 발사
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bullet;
+
+        // 특별한 총알이 선택되었을 때
+        if (spbulletCheck)
+        {
+            bullet = Instantiate(SPbulletPrefab, firePoint.position, firePoint.rotation);
+        }
+        else
+        {
+            bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        }
+
         Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
 
         if (bulletRb != null)
         {
             bulletRb.velocity = attackDirection.normalized * bulletSpeed;
         }
+    }
+
+    // 특수 총알 상태 활성화 메소드
+    private void ActivateSpecialBullet()
+    {
+        if (!spbulletCheck) // 이미 활성화되었을 때는 다시 설정하지 않음
+        {
+            Debug.Log("특별한 총알이 활성화되었습니다.");
+            spbulletCheck = true;
+            spbulletTimer = 0f; // 타이머 초기화
+        }
+    }
+
+    // 특수 총알 상태 비활성화 메소드
+    private void DeactivateSpecialBullet()
+    {
+        Debug.Log("특별한 총알이 비활성화되었습니다.");
+        spbulletCheck = false;
+        spbulletTimer = 0f; // 타이머 초기화
     }
 }
