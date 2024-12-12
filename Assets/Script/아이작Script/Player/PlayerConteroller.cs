@@ -12,10 +12,13 @@ public class PlayerController : MonoBehaviour
     public Transform firePoint; // 총알 발사 위치
     public float bulletSpeed = 20f; // 총알 속도
 
+    
+
     [Header("Player Sounds")]
     public AudioClip walkSound; // 걷는 소리
-    private AudioSource audioSource; // 오디오 소스 컴포넌트
+    public bool spammoCheck;    // 특수 총알체크
 
+    private AudioSource audioSource; // 오디오 소스 컴포넌트
     private Rigidbody playerRigidbody;
     private Animator animator;
     private Vector3 moveDirection; // 이동 방향
@@ -24,7 +27,7 @@ public class PlayerController : MonoBehaviour
     private bool isRotating = false;
     private bool spbulletCheck = false; // 올바르게 초기화
     private float spbulletTimer = 0f; // 특별한 총알 상태 유지 타이머
-
+   
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
@@ -45,18 +48,18 @@ public class PlayerController : MonoBehaviour
         HandleAttack();
 
         // 특수 총알 전환 (Enter 키로 설정)
-        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        if (spammoCheck)
         {
             ActivateSpecialBullet(); // 특별한 총알 상태 활성화
             Debug.Log("특수총알이 활성화 됩니다.");
         }
 
-        // 특수 총알 상태가 활성화된 경우 타이머를 작동시켜 2분 후에 비활성화
+        // 특수 총알 상태가 활성화된 경우 타이머를 작동시켜 30초 후에 비활성화
         if (spbulletCheck)
         {
             spbulletTimer += Time.deltaTime;
 
-            if (spbulletTimer >= 60f) // 2분(120초) 경과 시
+            if (spbulletTimer >= 30f) // 30초 경과 시
             {
                 DeactivateSpecialBullet(); // 2분 후 특수 총알 비활성화
             }
@@ -188,6 +191,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("특별한 총알이 비활성화되었습니다.");
         spbulletCheck = false;
+        spammoCheck = false;
         spbulletTimer = 0f; // 타이머 초기화
     }
 }

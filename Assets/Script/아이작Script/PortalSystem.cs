@@ -10,7 +10,7 @@ public class PortalSystem : MonoBehaviour
     public GameObject[] PortarPoint;        // 포탈 포인트
     public GameObject[] CameraPoint;        // 카메라 포인트
 
-    public Inventory inventory;             // 인벤토리
+    public ItemData item;
     public UIData uIData;
 
     private Vector3 cameraVelocity = Vector3.zero; // 카메라 이동을 위한 속도 변수
@@ -18,7 +18,7 @@ public class PortalSystem : MonoBehaviour
 
     private void Start()
     {
-        inventory = FindObjectOfType<Inventory>();
+        item = FindObjectOfType<ItemData>();
         uIData = FindObjectOfType<UIData>();
     }
     private void Update()
@@ -42,21 +42,25 @@ public class PortalSystem : MonoBehaviour
         {
             if (EnemyCount >= 2)
             {
-                StartCoroutine(MoveToPortal(PortarPoint[3].transform.position, CameraPoint[1].transform.position));
+                StartCoroutine(MoveToPortal(PortarPoint[3].transform.position, CameraPoint[1].transform.position)); 
             }
         }
         if (other.CompareTag("Room01rightPortal"))
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 2)
             {
-                StartCoroutine(MoveToPortal(PortarPoint[4].transform.position, CameraPoint[2].transform.position));
+                StartCoroutine(MoveToPortal(PortarPoint[4].transform.position, CameraPoint[2].transform.position));   
             }
         }
         // 2번방
         if (other.CompareTag("Room02leftPortal"))
         {
-            SceneManager.LoadScene("FinishScene");
-            Debug.Log("씬 이동");
+            if (item.pieceCount >= 4)
+            {
+                SceneManager.LoadScene("FinishScene");
+                Debug.Log("씬 이동");
+            }
+            
         }
         if (other.CompareTag("Room02rightPortal"))
         {
@@ -87,14 +91,14 @@ public class PortalSystem : MonoBehaviour
         // 3번방
         if (other.CompareTag("Room03leftPortal"))
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 5)
             {
                 StartCoroutine(MoveToPortal(PortarPoint[1].transform.position, CameraPoint[0].transform.position));
             }
         }
         if (other.CompareTag("Room03upPortal"))
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 5)
             {
                 StartCoroutine(MoveToPortal(PortarPoint[7].transform.position, CameraPoint[3].transform.position));
             }
@@ -102,14 +106,14 @@ public class PortalSystem : MonoBehaviour
         // 4번방
         if (other.CompareTag("Room04rightPortal"))
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 9)
             {
                 StartCoroutine(MoveToPortal(PortarPoint[8].transform.position, CameraPoint[4].transform.position));
             }
         }
         if (other.CompareTag("Room04downPortal"))
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 9)
             {
                 StartCoroutine(MoveToPortal(PortarPoint[5].transform.position, CameraPoint[2].transform.position));
             }
@@ -117,14 +121,14 @@ public class PortalSystem : MonoBehaviour
         // 5번방
         if (other.CompareTag("Room05leftPortal"))
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 10)
             {
                 StartCoroutine(MoveToPortal(PortarPoint[6].transform.position, CameraPoint[3].transform.position));
             }
         }
         if (other.CompareTag("Room05rightPortal"))
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 10)
             {
                 StartCoroutine(MoveToPortal(PortarPoint[10].transform.position, CameraPoint[5].transform.position));
             }
@@ -133,21 +137,21 @@ public class PortalSystem : MonoBehaviour
         // 6번방
         if (other.CompareTag("Room06leftPortal"))
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 14)
             {
                 StartCoroutine(MoveToPortal(PortarPoint[9].transform.position, CameraPoint[4].transform.position));
             }
         }
         if (other.CompareTag("Room06upPortal"))
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 14)
             {
                 StartCoroutine(MoveToPortal(PortarPoint[14].transform.position, CameraPoint[6].transform.position));
             }
         }
         if (other.CompareTag("Room06downPortal")) // 12번 방으로 이동
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 30)
             {
                 StartCoroutine(MoveToPortal(PortarPoint[22].transform.position, CameraPoint[11].transform.position));
             }
@@ -156,14 +160,14 @@ public class PortalSystem : MonoBehaviour
         // 7 번방
         if (other.CompareTag("Room07upPortal"))
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 19)
             {
                 StartCoroutine(MoveToPortal(PortarPoint[16].transform.position, CameraPoint[7].transform.position));
             }
         }
         if (other.CompareTag("Room07downPortal")) 
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 19)
             {
                 StartCoroutine(MoveToPortal(PortarPoint[11].transform.position, CameraPoint[5].transform.position));
             }
@@ -172,14 +176,14 @@ public class PortalSystem : MonoBehaviour
         // 8 번방
         if (other.CompareTag("Room08upPortal"))
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 23)
             {
                 StartCoroutine(MoveToPortal(PortarPoint[18].transform.position, CameraPoint[8].transform.position));
             }
         }
         if (other.CompareTag("Room08downPortal"))
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 23)
             {
                 StartCoroutine(MoveToPortal(PortarPoint[13].transform.position, CameraPoint[6].transform.position));
             }
@@ -188,14 +192,14 @@ public class PortalSystem : MonoBehaviour
         // 9 번방
         if (other.CompareTag("Room09upPortal"))
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 27)
             {
                 StartCoroutine(MoveToPortal(PortarPoint[20].transform.position, CameraPoint[9].transform.position));
             }
         }
         if (other.CompareTag("Room09downPortal"))
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 27)
             {
                 StartCoroutine(MoveToPortal(PortarPoint[15].transform.position, CameraPoint[7].transform.position));
             }
@@ -204,14 +208,14 @@ public class PortalSystem : MonoBehaviour
         // 10 번방
         if (other.CompareTag("Room10upPortal"))
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 29)
             {
                 StartCoroutine(MoveToPortal(PortarPoint[21].transform.position, CameraPoint[10].transform.position));
             }
         }
         if (other.CompareTag("Room10downPortal"))
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 29)
             {
                 StartCoroutine(MoveToPortal(PortarPoint[17].transform.position, CameraPoint[8].transform.position));
             }
@@ -220,7 +224,7 @@ public class PortalSystem : MonoBehaviour
         // 11 번방
         if (other.CompareTag("Room11downPortal"))
         {
-            if (EnemyCount >= 0)
+            if (EnemyCount >= 30)
             {
                 StartCoroutine(MoveToPortal(PortarPoint[19].transform.position, CameraPoint[9].transform.position));
             }

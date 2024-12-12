@@ -60,6 +60,7 @@ TagManager:
   - Room26upPortal
   - piece
   - spBullt
+  - medic
   layers:
   - Default
   - TransparentFX

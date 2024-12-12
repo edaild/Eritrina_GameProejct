@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d7d616ca473154190f13a8d78df387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stoppingDistance: 2.5
+  stoppingDistance: 4.5
   Enemy_attack_range: {fileID: 6460628572656221715}
   playerhealthbar: {fileID: 0}
   enemydata: {fileID: 11400000, guid: fadc2f7480ba807438fabc7f1895ab11, type: 2}
