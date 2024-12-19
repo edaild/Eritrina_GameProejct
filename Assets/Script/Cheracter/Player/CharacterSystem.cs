@@ -18,6 +18,9 @@ public class CharacterSystem : MonoBehaviour
 
     private bool isWalking = false;
 
+    [Header("Walking Sound Settings")]
+    public float walkSoundVolume = 0.5f; // 걷는 소리의 볼륨 (0.0 ~ 1.0 범위)
+
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
@@ -28,6 +31,9 @@ public class CharacterSystem : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
+
+        // 걷는 소리 볼륨 설정
+        audioSource.volume = walkSoundVolume;
 
         // walkSound가 할당되어 있는지 확인
         if (walkSound == null)
@@ -103,5 +109,12 @@ public class CharacterSystem : MonoBehaviour
                 audioSource.Stop();  // 소리 멈추기
             }
         }
+    }
+
+    // 걷는 소리의 볼륨을 설정하는 메소드
+    public void SetWalkSoundVolume(float volume)
+    {
+        walkSoundVolume = Mathf.Clamp01(volume);  // 볼륨을 0.0 ~ 1.0 사이로 제한
+        audioSource.volume = walkSoundVolume;     // 오디오 소스의 볼륨에 반영
     }
 }

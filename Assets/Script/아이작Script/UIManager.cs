@@ -58,11 +58,6 @@ public class UIManager : MonoBehaviour
     // 게임 종료 버튼 클릭 시 호출되는 함수
     public void OnExitButtonClick()
     {
-        // 게임 종료 로직
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;  // 에디터에서 실행 중지
-#else
-            Application.Quit();  // 빌드된 게임에서 종료
-#endif
+        SceneManager.LoadScene("MainScene");
     }
 }

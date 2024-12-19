@@ -24,12 +24,11 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         SetupCamera();
-        Cursor.lockState = CursorLockMode.Locked;  // 마우스 커서를 잠금
+
     }
 
     void Update()
     {
-        HandleInput();
         if (!Input.GetKey(KeyCode.LeftAlt) && !Input.GetKey(KeyCode.RightAlt)) // ALT 키가 눌리지 않았을 때만 회전
         {
             HandleRotation();
@@ -37,18 +36,6 @@ public class CameraController : MonoBehaviour
         HandleZoom();
     }
 
-    private void HandleInput()
-    {
-        // ALT 키를 눌렀을 때 마우스 커서 표시
-        if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt))
-        {
-            Cursor.lockState = CursorLockMode.None;  // 마우스 커서 표시
-        }
-        if (Input.GetKeyUp(KeyCode.LeftAlt) || Input.GetKeyUp(KeyCode.RightAlt))
-        {
-            Cursor.lockState = CursorLockMode.Locked;  // 마우스 커서 잠금
-        }
-    }
 
     public void HandleRotation()
     {

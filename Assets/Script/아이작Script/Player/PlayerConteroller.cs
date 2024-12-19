@@ -12,11 +12,10 @@ public class PlayerController : MonoBehaviour
     public Transform firePoint; // 총알 발사 위치
     public float bulletSpeed = 20f; // 총알 속도
 
-    
-
     [Header("Player Sounds")]
     public AudioClip walkSound; // 걷는 소리
     public bool spammoCheck;    // 특수 총알체크
+    public float walkSoundVolume = 0.5f;  // 걷는 소리 볼륨 (0.0f ~ 1.0f 범위)
 
     private AudioSource audioSource; // 오디오 소스 컴포넌트
     private Rigidbody playerRigidbody;
@@ -27,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private bool isRotating = false;
     private bool spbulletCheck = false; // 올바르게 초기화
     private float spbulletTimer = 0f; // 특별한 총알 상태 유지 타이머
-   
+
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
@@ -40,6 +39,12 @@ public class PlayerController : MonoBehaviour
         }
 
         playerRigidbody.freezeRotation = true;  // 물리적 회전 방지
+
+        // 걷는 소리 볼륨 초기 설정
+        if (walkSound != null)
+        {
+            audioSource.volume = walkSoundVolume;  // 걷는 소리의 초기 볼륨 설정
+        }
     }
 
     private void Update()
@@ -193,5 +198,12 @@ public class PlayerController : MonoBehaviour
         spbulletCheck = false;
         spammoCheck = false;
         spbulletTimer = 0f; // 타이머 초기화
+    }
+
+    // 걷는 소리 볼륨을 수동으로 업데이트하는 메소드
+    public void SetWalkSoundVolume(float volume)
+    {
+        walkSoundVolume = Mathf.Clamp01(volume);  // 0.0f ~ 1.0f 범위로 제한
+        audioSource.volume = walkSoundVolume;  // 걷는 소리 볼륨 업데이트
     }
 }
